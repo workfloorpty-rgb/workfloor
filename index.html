@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Workfloor helps South African SMMEs register businesses, apply for tenders, manage payroll, and handle admin — all in one place.">
+<meta name="keywords" content="CIPC registration, tender support, RFQ, payroll South Africa, SMME support, business registration, CSD, B-BBEE, SARS">
+<meta property="og:title" content="Workfloor — SMME Business Support">
+<meta property="og:description" content="Register your business, win tenders, run payroll, and sort your admin. Workfloor does the back office so you can run the business.">
+<meta property="og:url" content="https://workfloor.co.za">
+<title>Workfloor | SMME Business Support — Registrations, Tenders, Payroll & Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --yellow: #F5C000;
+    --yellow-dark: #D4A500;
+    --black: #0f0f0f;
+    --white: #ffffff;
+    --gray: #f7f7f5;
+    --gray2: #efefec;
+    --muted: #6b6b6b;
+    --border: #e4e4e0;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.15; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+  /* ── Layout ── */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 72px 0; }
+  .section-sm { padding: 48px 0; }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800;
+    letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px;
+  }
+  .logo-mark {
+    width: 28px; height: 28px; background: var(--yellow);
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; font-size: 14px; font-weight: 800;
+  }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-size: 14px; color: var(--muted); font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black); color: var(--white);
+    border: none; border-radius: var(--radius-sm);
+    padding: 8px 18px; font-size: 14px; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #333; }
+  .nav-mobile-btn {
+    display: none; background: none; border: none;
+    font-size: 22px; color: var(--black);
+  }
+  .nav-mobile-menu {
+    display: none; flex-direction: column; gap: 0;
+    border-top: 1px solid var(--border); background: var(--white);
+  }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a {
+    padding: 14px 24px; font-size: 15px; font-weight: 500;
+    border-bottom: 1px solid var(--border); color: var(--black);
+  }
+  .nav-mobile-menu .nav-cta {
+    margin: 16px 24px; text-align: center; display: block; border-radius: var(--radius-sm);
+  }
+
+  /* ── Hero ── */
+  .hero { padding: 80px 0 72px; background: var(--white); }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    background: var(--gray); padding: 5px 12px; border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow span { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; display: inline-block; }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 60px); font-weight: 800;
+    letter-spacing: -1.5px; line-height: 1.08;
+    margin-bottom: 20px; max-width: 700px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: var(--yellow);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .hero-sub {
+    font-size: 17px; color: var(--muted); line-height: 1.65;
+    max-width: 560px; margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--black); color: var(--white);
+    border: none; border-radius: var(--radius-sm);
+    padding: 14px 28px; font-size: 15px; font-weight: 500;
+    transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: #2a2a2a; }
+  .btn-outline {
+    background: transparent; color: var(--black);
+    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    padding: 14px 28px; font-size: 15px; font-weight: 500;
+    transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: #aaa; }
+  .btn-wa {
+    background: #25D366; color: var(--white);
+    border: none; border-radius: var(--radius-sm);
+    padding: 14px 28px; font-size: 15px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-wa:hover { background: #1fba57; }
+  .trust-bar { display: flex; gap: 28px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+  .trust-dot { width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── Finder ── */
+  .finder-section { background: var(--black); padding: 64px 0; }
+  .finder-section .label {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #888; margin-bottom: 10px;
+  }
+  .finder-section h2 {
+    font-size: clamp(24px, 4vw, 34px); font-weight: 800;
+    color: var(--white); letter-spacing: -0.5px; margin-bottom: 8px;
+  }
+  .finder-section .sub { font-size: 15px; color: #888; margin-bottom: 36px; }
+  .finder-box {
+    background: #1a1a1a; border-radius: 16px;
+    padding: 32px; max-width: 700px;
+  }
+  .finder-step { display: none; }
+  .finder-step.active { display: block; }
+  .finder-q {
+    font-family: 'Syne', sans-serif; font-size: 20px;
+    font-weight: 700; color: var(--white); margin-bottom: 20px;
+  }
+  .finder-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px; }
+  .finder-opt {
+    background: #252525; border: 1.5px solid #333;
+    border-radius: var(--radius); padding: 14px 16px;
+    cursor: pointer; transition: border-color 0.15s, background 0.15s;
+    text-align: left;
+  }
+  .finder-opt:hover { border-color: #666; }
+  .finder-opt.sel { border-color: var(--yellow); background: #2a2500; }
+  .finder-opt-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+  .finder-opt-text { font-size: 13px; color: #ccc; line-height: 1.4; font-weight: 500; }
+  .finder-opt.sel .finder-opt-text { color: var(--yellow); }
+  .finder-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-yellow {
+    background: var(--yellow); color: var(--black);
+    border: none; border-radius: var(--radius-sm);
+    padding: 12px 24px; font-size: 14px; font-weight: 500;
+    transition: background 0.2s; display: none;
+  }
+  .btn-yellow.show { display: inline-block; }
+  .btn-yellow:hover { background: var(--yellow-dark); }
+  .btn-back {
+    background: none; border: none; color: #666;
+    font-size: 13px; padding: 0; display: none;
+  }
+  .btn-back.show { display: inline-block; }
+
+  /* ── Result card ── */
+  .result-card { display: none; }
+  .result-card.show { display: block; }
+  .result-pill {
+    display: inline-block; background: var(--yellow); color: var(--black);
+    font-size: 11px; font-weight: 600; padding: 3px 12px;
+    border-radius: 20px; margin-bottom: 10px; letter-spacing: 0.03em;
+  }
+  .result-title {
+    font-family: 'Syne', sans-serif; font-size: 22px;
+    font-weight: 800; color: var(--white); margin-bottom: 6px;
+  }
+  .result-desc { font-size: 14px; color: #999; margin-bottom: 20px; line-height: 1.5; }
+  .result-services { border-top: 1px solid #2a2a2a; }
+  .result-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid #2a2a2a; font-size: 14px;
+  }
+  .result-row-name { color: #ccc; }
+  .result-row-price { color: var(--yellow); font-weight: 500; font-size: 13px; }
+  .result-btns { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .btn-restart {
+    background: none; border: none; color: #666;
+    font-size: 13px; margin-top: 12px; display: block; padding: 0;
+  }
+  .btn-restart:hover { color: #aaa; }
+
+  /* ── Pillars ── */
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .pillar-card {
+    background: var(--gray); border-radius: var(--radius);
+    padding: 24px; border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .pillar-card:hover { border-color: #bbb; transform: translateY(-2px); }
+  .pillar-num {
+    width: 34px; height: 34px; background: var(--yellow);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 13px; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .pillar-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .pillar-sub { font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+  .pillar-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pillar-tag {
+    font-size: 11px; background: var(--white);
+    border: 1px solid var(--border); border-radius: 20px;
+    padding: 3px 10px; color: var(--muted);
+  }
+  .pillar-badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 20px; margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-rec { background: #E1F5EE; color: #085041; }
+  .badge-new { background: #E6F1FB; color: #0C447C; }
+  .badge-earn { background: #FAEEDA; color: #633806; }
+
+  /* ── Pricing tables ── */
+  .pricing-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+  .ptab {
+    background: var(--gray); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 8px 18px;
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .ptab.active { background: var(--black); color: var(--white); border-color: var(--black); }
+  .pricing-panel { display: none; }
+  .pricing-panel.active { display: block; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .price-card {
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; background: var(--white);
+  }
+  .price-card.featured { border: 2px solid var(--black); }
+  .price-name { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .price-amount { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
+  .price-note { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .price-features li { font-size: 13px; color: #444; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+  .price-features li::before { content: ''; width: 5px; height: 5px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .simple-list { display: flex; flex-direction: column; gap: 0; }
+  .simple-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .simple-row:last-child { border-bottom: none; }
+  .simple-price { font-weight: 500; color: var(--muted); font-size: 13px; }
+
+  /* ── Content / Education ── */
+  .content-section { background: var(--black); padding: 72px 0; }
+  .content-section .label {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #666; margin-bottom: 10px;
+  }
+  .content-section h2 {
+    font-size: clamp(26px, 4vw, 38px); font-weight: 800;
+    color: var(--white); letter-spacing: -0.5px; margin-bottom: 10px;
+  }
+  .content-section .sub { font-size: 15px; color: #777; margin-bottom: 40px; max-width: 520px; }
+  .topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .topic-card {
+    background: #161616; border: 1px solid #222;
+    border-radius: var(--radius); padding: 18px 20px;
+  }
+  .topic-pillar { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; }
+  .topic-title { font-size: 14px; color: #ddd; line-height: 1.4; font-weight: 500; }
+
+  /* ── Social proof ── */
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .proof-card {
+    background: var(--gray); border-radius: var(--radius);
+    padding: 24px; border: 1px solid var(--border);
+  }
+  .proof-stars { color: var(--yellow); font-size: 14px; margin-bottom: 10px; letter-spacing: 2px; }
+  .proof-text { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+  .proof-name { font-size: 13px; font-weight: 600; }
+  .proof-meta { font-size: 12px; color: var(--muted); }
+
+  /* ── CTA strip ── */
+  .cta-strip { background: var(--yellow); padding: 56px 0; }
+  .cta-strip h2 {
+    font-size: clamp(26px, 4vw, 40px); font-weight: 800;
+    letter-spacing: -0.5px; margin-bottom: 10px;
+  }
+  .cta-strip p { font-size: 16px; color: #555; margin-bottom: 28px; max-width: 500px; }
+  .cta-strip .btn-primary { background: var(--black); }
+
+  /* ── Footer ── */
+  footer { background: var(--black); padding: 48px 0 28px; }
+  .footer-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; margin-bottom: 40px; }
+  .footer-brand .logo { color: var(--white); margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; color: #666; line-height: 1.6; max-width: 220px; }
+  .footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: #777; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: #ccc; }
+  .footer-bottom {
+    border-top: 1px solid #1a1a1a; padding-top: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .footer-bottom p { font-size: 12px; color: #444; }
+
+  /* ── Section titles ── */
+  .section-label {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: clamp(26px, 4vw, 38px); font-weight: 800;
+    letter-spacing: -0.5px; margin-bottom: 10px;
+  }
+  .section-sub { font-size: 15px; color: var(--muted); max-width: 520px; margin-bottom: 40px; line-height: 1.6; }
+
+  /* ── Divider ── */
+  .divider { height: 1px; background: var(--border); }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-mobile-btn { display: block; }
+    .hero { padding: 48px 0 56px; }
+    .section { padding: 48px 0; }
+    .finder-box { padding: 20px; }
+    .finder-q { font-size: 17px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark">W</div>
+        Workfloor
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#learn">Learn</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-cta" onclick="openWA()">WhatsApp us</button>
+      <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+    </div>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="#learn" onclick="toggleMenu()">Learn</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a class="nav-cta" onclick="openWA(); toggleMenu()">WhatsApp us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow"><span></span>SMME support · Nationwide · Since 2020</div>
+    <h1>We help South African businesses <em>start, comply,</em> and grow.</h1>
+    <p class="hero-sub">From your first company registration to government tenders, payroll, and a clean back office — Workfloor handles what slows you down.</p>
+    <div class="hero-actions">
+      <button class="btn-wa" onclick="openWA()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Chat with us on WhatsApp
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('finder-section').scrollIntoView({behavior:'smooth'})">Find what you need →</button>
+    </div>
+    <div class="trust-bar">
+      <span class="trust-item"><span class="trust-dot"></span>CIPC registered agent</span>
+      <span class="trust-item"><span class="trust-dot"></span>Sage payroll partner</span>
+      <span class="trust-item"><span class="trust-dot"></span>CSD &amp; tender ready</span>
+      <span class="trust-item"><span class="trust-dot"></span>1 000+ SMMEs helped</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINDER -->
+<section class="finder-section" id="finder-section">
+  <div class="container">
+    <div class="label">Where do I start?</div>
+    <h2>Not sure what you need?</h2>
+    <p class="sub">Answer 2 quick questions and we'll show you exactly what to do next.</p>
+    <div class="finder-box">
+
+      <!-- Step 1 -->
+      <div class="finder-step active" id="fs1">
+        <div class="finder-q">Where are you right now?</div>
+        <div class="finder-opts">
+          <div class="finder-opt" onclick="pickQ1(this,'new')">
+            <span class="finder-opt-icon">🌱</span>
+            <span class="finder-opt-text">I'm starting out — no registered business yet</span>
+          </div>
+          <div class="finder-opt" onclick="pickQ1(this,'registered')">
+            <span class="finder-opt-icon">🏢</span>
+            <span class="finder-opt-text">I'm registered but my documents aren't sorted</span>
+          </div>
+          <div class="finder-opt" onclick="pickQ1(this,'trading')">
+            <span class="finder-opt-icon">📈</span>
+            <span class="finder-opt-text">I'm trading — I need tenders, payroll, or admin help</span>
+          </div>
+          <div class="finder-opt" onclick="pickQ1(this,'brand')">
+            <span class="finder-opt-icon">🎨</span>
+            <span class="finder-opt-text">I just need a logo, website, or something designed</span>
+          </div>
+        </div>
+        <div class="finder-actions">
+          <button class="btn-yellow" id="fnext1" onclick="goFS2()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="finder-step" id="fs2">
+        <div class="finder-q" id="fq2">What's most urgent?</div>
+        <div class="finder-opts" id="fopts2"></div>
+        <div class="finder-actions">
+          <button class="btn-back show" onclick="goFS1()">← Back</button>
+          <button class="btn-yellow show" onclick="showFResult()">Show me what I need →</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="result-card" id="fresult">
+        <div class="result-pill" id="rpill">Recommended</div>
+        <div class="result-title" id="rtitle"></div>
+        <div class="result-desc" id="rdesc"></div>
+        <div class="result-services" id="rservices"></div>
+        <div class="result-btns">
+          <button class="btn-yellow show" onclick="openWA()" style="display:inline-block">WhatsApp us to get started</button>
+          <button class="btn-back show" style="color:#aaa" onclick="openWA()">Request a quote</button>
+        </div>
+        <button class="btn-restart" onclick="restartFinder()">← Start over</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">What we do</div>
+    <h2 class="section-title">5 pillars. Everything your business needs.</h2>
+    <p class="section-sub">Every service we offer sits in one of these five areas. Click any pillar to see what's included.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">1</div>
+        <div class="pillar-title">Start your business <span class="pillar-badge badge-rec">foundation</span></div>
+        <p class="pillar-sub">Register your company, get your tax number, and get compliant from day one.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag">CIPC registration</span>
+          <span class="pillar-tag">SARS tax pin</span>
+          <span class="pillar-tag">B-BBEE certificate</span>
+          <span class="pillar-tag">CSD registration</span>
+          <span class="pillar-tag">COIDA</span>
+          <span class="pillar-tag">Business bank account</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">2</div>
+        <div class="pillar-title">Win tenders &amp; RFQs <span class="pillar-badge badge-earn">revenue</span></div>
+        <p class="pillar-sub">From your first government quote to full tender submissions — we compile, comply, and submit.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag">RFQ starter pack</span>
+          <span class="pillar-tag">Tender compilation</span>
+          <span class="pillar-tag">Tender submission</span>
+          <span class="pillar-tag">CIDB registration</span>
+          <span class="pillar-tag">Briefing attendance</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">3</div>
+        <div class="pillar-title">Payroll &amp; compliance <span class="pillar-badge badge-new">recurring</span></div>
+        <p class="pillar-sub">Pay your staff legally. Payslips, UIF, SDL, PAYE — handled every month on Sage.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag">Monthly payroll</span>
+          <span class="pillar-tag">Payslip generation</span>
+          <span class="pillar-tag">UIF / SDL / PAYE</span>
+          <span class="pillar-tag">Leave tracking</span>
+          <span class="pillar-tag">Audit-proof records</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">4</div>
+        <div class="pillar-title">Remote admin &amp; docs <span class="pillar-badge badge-new">recurring</span></div>
+        <p class="pillar-sub">Company profiles, business plans, document systems — your back office without a full-time hire.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag">Company profile</span>
+          <span class="pillar-tag">Business plan</span>
+          <span class="pillar-tag">Financial projections</span>
+          <span class="pillar-tag">Admin support</span>
+          <span class="pillar-tag">Compliance folder</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">5</div>
+        <div class="pillar-title">Brand &amp; digital presence <span class="pillar-badge badge-earn">once-off</span></div>
+        <p class="pillar-sub">Logo, website, printing, signage — look professional from the first interaction.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag">Logo design</span>
+          <span class="pillar-tag">Website</span>
+          <span class="pillar-tag">Flyers &amp; posters</span>
+          <span class="pillar-tag">Signage &amp; banners</span>
+          <span class="pillar-tag">Branded clothing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing" style="background:var(--gray)">
+  <div class="container">
+    <div class="section-label">Transparent pricing</div>
+    <h2 class="section-title">No hidden fees. No surprises.</h2>
+    <p class="section-sub">Pick the category to see what it costs. All prices include our service fee — you just bring your ID and business info.</p>
+    <div class="pricing-tabs">
+      <button class="ptab active" onclick="showPTab('registrations',this)">Registrations</button>
+      <button class="ptab" onclick="showPTab('tenders',this)">Tenders &amp; RFQs</button>
+      <button class="ptab" onclick="showPTab('payroll',this)">Payroll</button>
+      <button class="ptab" onclick="showPTab('docs',this)">Business docs</button>
+      <button class="ptab" onclick="showPTab('brand',this)">Brand &amp; design</button>
+    </div>
+
+    <div class="pricing-panel active" id="pt-registrations">
+      <div class="simple-list">
+        <div class="simple-row"><span>CIPC new company registration</span><span class="simple-price">R450</span></div>
+        <div class="simple-row"><span>CIPC restore deregistered company</span><span class="simple-price">R1 750</span></div>
+        <div class="simple-row"><span>CIPC deregistration</span><span class="simple-price">R800</span></div>
+        <div class="simple-row"><span>CIPC amendment</span><span class="simple-price">R355</span></div>
+        <div class="simple-row"><span>CIPC BO &amp; annual returns</span><span class="simple-price">R575</span></div>
+        <div class="simple-row"><span>CIPC company name change</span><span class="simple-price">R450</span></div>
+        <div class="simple-row"><span>SARS tax pin + eFiling</span><span class="simple-price">R125</span></div>
+        <div class="simple-row"><span>SARS income tax p.a.</span><span class="simple-price">R175</span></div>
+        <div class="simple-row"><span>SARS provisional tax p.a.</span><span class="simple-price">R50</span></div>
+        <div class="simple-row"><span>SARS register representative</span><span class="simple-price">R750</span></div>
+        <div class="simple-row"><span>SARS VAT registration</span><span class="simple-price">R1 550</span></div>
+        <div class="simple-row"><span>B-BBEE sworn affidavit</span><span class="simple-price">R200</span></div>
+        <div class="simple-row"><span>B-BBEE CIPC certificate</span><span class="simple-price">R150</span></div>
+        <div class="simple-row"><span>New CSD registration</span><span class="simple-price">R450</span></div>
+        <div class="simple-row"><span>CSD edit — commodities</span><span class="simple-price">R350</span></div>
+        <div class="simple-row"><span>Business bank account</span><span class="simple-price">R250</span></div>
+        <div class="simple-row"><span>COIDA new registration</span><span class="simple-price">R2 550</span></div>
+        <div class="simple-row"><span>COIDA annual return filing</span><span class="simple-price">R450</span></div>
+        <div class="simple-row"><span>NCCA registration</span><span class="simple-price">R2 750</span></div>
+        <div class="simple-row"><span>CIDB (includes assessment fee)</span><span class="simple-price">R950</span></div>
+        <div class="simple-row"><span>Public liability insurance</span><span class="simple-price">R1 325</span></div>
+      </div>
+    </div>
+
+    <div class="pricing-panel" id="pt-tenders">
+      <div class="simple-list" style="margin-bottom:24px">
+        <div class="simple-row"><span style="font-weight:600">RFQ/Company starter package</span><span class="simple-price" style="color:var(--black);font-weight:700;font-size:16px">R875</span></div>
+        <div class="simple-row" style="padding-left:16px;font-size:13px;color:var(--muted)"><span>Includes: CIPC CK doc, SARS cert, B-BBEE cert, CSD report, business account, quote template</span><span></span></div>
+        <div class="simple-row"><span>RFQ compilation &amp; sending</span><span class="simple-price">R750</span></div>
+        <div class="simple-row"><span>Tender document compiling &amp; sending</span><span class="simple-price">Quote (W5)</span></div>
+        <div class="simple-row"><span>Briefing attendance</span><span class="simple-price">R250</span></div>
+        <div class="simple-row"><span>CIDB registration</span><span class="simple-price">R950</span></div>
+        <div class="simple-row"><span>NCCA registration</span><span class="simple-price">R2 750</span></div>
+        <div class="simple-row"><span>Public liability insurance</span><span class="simple-price">R1 325</span></div>
+      </div>
+    </div>
+
+    <div class="pricing-panel" id="pt-payroll">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Employers</div>
+          <div class="price-amount">R1 800+</div>
+          <div class="price-note">Once-off digital jumpstart setup</div>
+          <ul class="price-features">
+            <li>Monthly payroll processing</li>
+            <li>Compliance checks</li>
+            <li>Salary management</li>
+            <li>Digital leave tracking</li>
+            <li>UIF, TAX, SDL filing</li>
+            <li>Audit-proof records</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Per payslip</div>
+          <div class="price-amount">R180–R250</div>
+          <div class="price-note">Per employee per month</div>
+          <ul class="price-features">
+            <li>Medical aid loan-ready payslip</li>
+            <li>Home &amp; car instalment ready</li>
+            <li>UIF &amp; TAX covered for unemployment</li>
+            <li>Single director payslips included</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Add-ons</div>
+          <div class="price-amount">Custom</div>
+          <div class="price-note">Invoice &amp; supplier management</div>
+          <ul class="price-features">
+            <li>Invoice management</li>
+            <li>Supplier management</li>
+            <li>Staff register &amp; timesheets</li>
+            <li>Employment letters &amp; contracts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-panel" id="pt-docs">
+      <div class="pricing-grid" style="margin-bottom:24px">
+        <div class="price-card">
+          <div class="price-name">Company profile — Basic</div>
+          <div class="price-amount">R1 050</div>
+          <div class="price-note">4–5 pages, standard template</div>
+          <ul class="price-features">
+            <li>About us, services, vision &amp; mission</li>
+            <li>Professional layout</li>
+            <li>PDF format</li>
+            <li>1 round of revisions</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Company profile — Standard</div>
+          <div class="price-amount">R1 725</div>
+          <div class="price-note">6–8 pages, brand colours applied</div>
+          <ul class="price-features">
+            <li>Custom-designed layout</li>
+            <li>Content structuring &amp; rewriting</li>
+            <li>Compliance section (CK, B-BBEE, Tax)</li>
+            <li>PDF + editable version</li>
+            <li>2 rounds of revisions</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Company profile — Premium</div>
+          <div class="price-amount">R2 250</div>
+          <div class="price-note">10–12 pages, fully custom</div>
+          <ul class="price-features">
+            <li>Professional copywriting</li>
+            <li>Organogram &amp; project highlights</li>
+            <li>Compliance &amp; credentials section</li>
+            <li>PDF + editable source file</li>
+            <li>Up to 3 rounds of revisions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Business plan — Basic</div>
+          <div class="price-amount">R1 800</div>
+          <div class="price-note">Executive summary to 3-year overview</div>
+          <ul class="price-features">
+            <li>Business overview &amp; services</li>
+            <li>Basic marketing strategy</li>
+            <li>3-year financial overview</li>
+            <li>PDF + 1 revision</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Business plan — Standard</div>
+          <div class="price-amount">R2 600</div>
+          <div class="price-note">Full plan with financials</div>
+          <ul class="price-features">
+            <li>Industry &amp; competitor analysis</li>
+            <li>3–5 year financial projections</li>
+            <li>Risk analysis &amp; mitigation</li>
+            <li>PDF + editable version</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Business plan — Funding ready</div>
+          <div class="price-amount">R3 850</div>
+          <div class="price-note">Built for funders &amp; investors</div>
+          <ul class="price-features">
+            <li>Funding-grade executive summary</li>
+            <li>5-year financial projections</li>
+            <li>Cash flow &amp; break-even analysis</li>
+            <li>Funding use &amp; repayment strategy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-panel" id="pt-brand">
+      <div class="simple-list" style="margin-bottom:24px">
+        <div class="simple-row"><span>Logo with mockup</span><span class="simple-price">R400</span></div>
+        <div class="simple-row"><span>Flyer / poster design</span><span class="simple-price">R300</span></div>
+        <div class="simple-row"><span>Business card</span><span class="simple-price">R200</span></div>
+        <div class="simple-row"><span>Letterhead</span><span class="simple-price">R275</span></div>
+        <div class="simple-row"><span>Quote / invoice template</span><span class="simple-price">R180</span></div>
+        <div class="simple-row"><span>Social media post design</span><span class="simple-price">R200</span></div>
+        <div class="simple-row"><span>Email signature</span><span class="simple-price">R150</span></div>
+        <div class="simple-row"><span>Company profile document (W3)</span><span class="simple-price">Quote</span></div>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Website — Basic</div>
+          <div class="price-amount">R1 500</div>
+          <div class="price-note">+ R370/mo hosting &amp; maintenance</div>
+          <ul class="price-features">
+            <li>5 pages + free domain &amp; email</li>
+            <li>20GB storage, Google listing</li>
+            <li>Basic SEO + contact form</li>
+            <li>2 formal email addresses</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Website — Advanced</div>
+          <div class="price-amount">R2 750</div>
+          <div class="price-note">+ R370/mo hosting &amp; maintenance</div>
+          <ul class="price-features">
+            <li>8 pages + free domain &amp; email</li>
+            <li>SSL certificate + advanced CDN</li>
+            <li>On-page SEO</li>
+            <li>5 formal email addresses</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Website — Premium</div>
+          <div class="price-amount">R3 500</div>
+          <div class="price-note">+ R370/mo hosting &amp; maintenance</div>
+          <ul class="price-features">
+            <li>15+ pages + free domain &amp; email</li>
+            <li>Advanced SEO + support</li>
+            <li>50GB storage</li>
+            <li>5 formal email addresses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN / CONTENT -->
+<section class="content-section" id="learn">
+  <div class="container">
+    <div class="label">Free education</div>
+    <h2>We teach what others charge for.</h2>
+    <p class="sub">Plain-language videos on running a compliant, profitable business in South Africa. No jargon. No gatekeeping.</p>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-pillar">Pillar 1 · Registrations</div>
+        <div class="topic-title">Why you should register a company even if you're not in business yet</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-pillar">Pillar 2 · Tenders</div>
+        <div class="topic-title">What is an RFQ and how do you get one completely free?</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-pillar">Pillar 1 · Compliance</div>
+        <div class="topic-title">Who needs to file tax — and when? The honest answer.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-pillar">Pillar 2 · Tenders</div>
+        <div class="topic-title">What is CSD and why is it the most important database for your business?</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-pillar">Pillar 3 · Payroll</div>
+        <div class="topic-title">You're running payroll wrong — and it will cost you</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-pillar">Pillar 1 · Compliance</div>
+        <div class="topic-title">What is COIDA and why every employer is legally required to register</div>
+      </div>
+    </div>
+    <button class="btn-yellow show" style="display:inline-block" onclick="openWA()">Follow our content — ask us on WhatsApp →</button>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-label">What clients say</div>
+    <h2 class="section-title">We're the last bus stop.</h2>
+    <p class="section-sub">Most of our clients come after being failed or scammed elsewhere. We fix it, and we do it right.</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"I was scammed twice by other companies. Workfloor registered my business and had my CSD active within the week. I've won 3 RFQs since then."</p>
+        <div class="proof-name">Thabo M.</div>
+        <div class="proof-meta">Cleaning services · Limpopo</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"I didn't even know payroll was an issue until Workfloor showed me I was non-compliant. Now my staff are all registered and I pay myself a legal salary."</p>
+        <div class="proof-name">Nomsa K.</div>
+        <div class="proof-meta">Catering business · Gauteng</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"They sorted my CIPC, SARS, B-BBEE, and CSD in one week. I only needed my ID. Now I'm quoting government every month."</p>
+        <div class="proof-name">Sipho D.</div>
+        <div class="proof-meta">Construction · Mpumalanga</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Ready to sort your business?</h2>
+    <p>WhatsApp us today. No forms, no waiting rooms. Just bring your ID and tell us where you are — we'll handle the rest.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn-wa" onclick="openWA()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Chat on WhatsApp
+      </button>
+      <a href="mailto:consulting@workfloor.co.za" class="btn-primary">consulting@workfloor.co.za</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="color:var(--white)">
+          <div class="logo-mark">W</div>Workfloor
+        </div>
+        <p style="margin-top:12px">SMME business support — registrations, tenders, payroll, admin, and design. Nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Start your business</a>
+        <a href="#services">Tenders &amp; RFQs</a>
+        <a href="#services">Payroll</a>
+        <a href="#services">Remote admin</a>
+        <a href="#services">Brand &amp; design</a>
+      </div>
+      <div class="footer-col">
+        <h4>Pricing</h4>
+        <a href="#pricing">Registrations</a>
+        <a href="#pricing">Tender packages</a>
+        <a href="#pricing">Payroll rates</a>
+        <a href="#pricing">Business docs</a>
+        <a href="#pricing">Websites</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/27632238772">WhatsApp: 063 223 8772</a>
+        <a href="mailto:consulting@workfloor.co.za">consulting@workfloor.co.za</a>
+        <a href="mailto:workfloorpty@gmail.com">workfloorpty@gmail.com</a>
+        <a href="https://workfloor.co.za">workfloor.co.za</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Workfloor (Pty) Ltd. All rights reserved.</p>
+      <p style="color:#333">workfloor.co.za</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Nav mobile ──
+function toggleMenu(){
+  var m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+
+// ── WhatsApp ──
+function openWA(){
+  window.open('https://wa.me/27632238772?text=Hi%20Workfloor%2C%20I%20found%20you%20on%20your%20website%20and%20I%27d%20like%20to%20find%20out%20more.','_blank');
+}
+
+// ── Finder data ──
+var q1val = '';
+var q2val = '';
+
+var q2data = {
+  new: {
+    q: 'What do you need first?',
+    opts: [
+      {icon:'📄', text:'Register my company (CIPC)', val:'cipc'},
+      {icon:'💰', text:'Get my SARS tax number', val:'sars'},
+      {icon:'📦', text:'The full starter pack — everything at once', val:'starter'},
+      {icon:'🏦', text:'Open a business bank account', val:'bank'}
+    ]
+  },
+  registered: {
+    q: "What's missing from your compliance pack?",
+    opts: [
+      {icon:'📋', text:'B-BBEE certificate', val:'bbee'},
+      {icon:'🗂️', text:'CSD registration', val:'csd'},
+      {icon:'🛡️', text:'COIDA / labour compliance', val:'coida'},
+      {icon:'📁', text:'Company profile or business plan', val:'docs'}
+    ]
+  },
+  trading: {
+    q: 'What do you need help with right now?',
+    opts: [
+      {icon:'📬', text:'Apply for tenders and RFQs', val:'tender'},
+      {icon:'👥', text:'Pay my staff correctly + payslips', val:'payroll'},
+      {icon:'🗃️', text:'Sort out my business admin', val:'admin'},
+      {icon:'📊', text:'Financial projections or a business plan', val:'plan'}
+    ]
+  },
+  brand: {
+    q: 'What are you looking for?',
+    opts: [
+      {icon:'✏️', text:'Logo design', val:'logo'},
+      {icon:'🌐', text:'Website', val:'website'},
+      {icon:'🖨️', text:'Printing — shirts, banners, signage', val:'print'},
+      {icon:'📱', text:'Social media or marketing design', val:'social'}
+    ]
+  }
+};
+
+var results = {
+  cipc:{pill:'Pillar 1 · Start your business',title:'Company registration',desc:'We register your company with CIPC and set up your SARS tax number. You only need your ID.',services:[{n:'CIPC new company registration',p:'R450'},{n:'SARS tax pin + eFiling setup',p:'R125'},{n:'B-BBEE sworn affidavit',p:'R200'},{n:'CSD registration',p:'R450'}]},
+  sars:{pill:'Pillar 1 · Start your business',title:'SARS tax setup',desc:'Get your tax pin, eFiling profile, and representative registered correctly from day one.',services:[{n:'SARS tax pin + eFiling',p:'R125'},{n:'SARS register representative',p:'R750'},{n:'Income tax filing p.a.',p:'R175'},{n:'Provisional tax p.a.',p:'R50'}]},
+  starter:{pill:'Pillar 1 + 2 · Full starter',title:'RFQ / Company starter pack',desc:'Everything you need to start quoting government — in 1 to 7 days. Just bring your ID.',services:[{n:'CIPC CK document',p:''},{n:'SARS tax certificate',p:''},{n:'B-BBEE certificate',p:''},{n:'CSD full report',p:''},{n:'Business bank account',p:''},{n:'Quote template',p:''},{n:'Full package',p:'R875'}]},
+  bank:{pill:'Pillar 1 · Start your business',title:'Business bank account',desc:'We assist you in opening the right business account for your company size and needs.',services:[{n:'Business account setup assistance',p:'R250'}]},
+  bbee:{pill:'Pillar 1 · Compliance',title:'B-BBEE certification',desc:'Get your B-BBEE sworn affidavit or CIPC certificate — required for most tenders and RFQs.',services:[{n:'B-BBEE sworn affidavit',p:'R200'},{n:'B-BBEE CIPC certificate',p:'R150'}]},
+  csd:{pill:'Pillar 1 · Compliance',title:'CSD registration',desc:'Central Supplier Database — mandatory for all government suppliers. We register and maintain yours.',services:[{n:'New CSD registration',p:'R450'},{n:'CSD edit — commodities',p:'R350'}]},
+  coida:{pill:'Pillar 1 · Labour compliance',title:'COIDA & labour compliance',desc:'COIDA is compulsory for any employer. We register your company and file annual returns.',services:[{n:'COIDA new registration',p:'R2 550'},{n:'COIDA annual return filing',p:'R450'}]},
+  docs:{pill:'Pillar 4 · Business documents',title:'Company profile & business plan',desc:'Professional documents for tender packs, funding applications, and client meetings.',services:[{n:'Company profile — Basic',p:'R1 050'},{n:'Company profile — Standard',p:'R1 725'},{n:'Company profile — Premium',p:'R2 250'},{n:'Business plan — Basic',p:'R1 800'},{n:'Business plan — Funding ready',p:'R3 850'}]},
+  tender:{pill:'Pillar 2 · Win tenders',title:'Tender & RFQ support',desc:'We find, compile, and submit tenders and RFQs for your business — from first quote to full submission.',services:[{n:'RFQ starter pack (all docs)',p:'R875'},{n:'RFQ compilation & sending',p:'R750'},{n:'Tender document compiling',p:'W5 (quote)'},{n:'Briefing attendance',p:'R250'}]},
+  payroll:{pill:'Pillar 3 · Payroll',title:'Monthly payroll & payslips',desc:'We run your payroll on Sage — legally, on time, with UIF, SDL and PAYE filed every month.',services:[{n:'Digital jumpstart setup',p:'R1 800–R5 500'},{n:'Payslip generation (per slip)',p:'R180–R250'},{n:'UIF / SDL / PAYE filing',p:'Included'},{n:'Leave tracking',p:'Included'}]},
+  admin:{pill:'Pillar 4 · Remote admin',title:'Remote admin support',desc:'We organise your business, set up your document system, and handle ongoing back-office tasks.',services:[{n:'Free consultation first',p:''},{n:'Document organisation & filing',p:'Custom'},{n:'Invoice & quote templates',p:'Included'},{n:'Compliance folder setup',p:'Included'},{n:'Ongoing monthly support',p:'Custom quote'}]},
+  plan:{pill:'Pillar 4 · Business documents',title:'Business plan & projections',desc:'Investor-ready or funding-ready business plans with detailed financial models.',services:[{n:'Business plan — Basic',p:'R1 800'},{n:'Business plan — Standard',p:'R2 600'},{n:'Business plan — Premium',p:'R3 500'},{n:'Business plan — Funding ready',p:'R3 850'}]},
+  logo:{pill:'Pillar 5 · Brand',title:'Logo & brand identity',desc:'A professional logo with mockup — see it on business cards, shirts, and signage before it prints.',services:[{n:'Logo with mockup',p:'R400'},{n:'Business card',p:'R200'},{n:'Letterhead',p:'R275'},{n:'Email signature',p:'R150'}]},
+  website:{pill:'Pillar 5 · Digital presence',title:'Website design + hosting',desc:'Professional website with free domain and company email included.',services:[{n:'Basic — 5 pages',p:'R1 500'},{n:'Advanced — 8 pages',p:'R2 750'},{n:'Premium — 15+ pages',p:'R3 500'},{n:'Monthly hosting + maintenance',p:'R370/mo'}]},
+  print:{pill:'Pillar 5 · Printing',title:'Branded printing & signage',desc:'Uniforms, banners, gazebos, mugs, and signage — all branded and delivered.',services:[{n:'Sublimation printing',p:'Quote'},{n:'Gazebos & banners',p:'Quote'},{n:'Caps & t-shirts / embroidery',p:'Quote'},{n:'Signboards & 3D signage',p:'Quote'}]},
+  social:{pill:'Pillar 5 · Digital',title:'Social media design',desc:'Branded posts, flyers, and marketing content that looks consistent and professional.',services:[{n:'Social media post design',p:'R200'},{n:'Flyer / poster',p:'R300'},{n:'Quote / invoice template',p:'R180'}]}
+};
+
+function pickQ1(el, val){
+  document.querySelectorAll('#fs1 .finder-opt').forEach(function(o){o.classList.remove('sel')});
+  el.classList.add('sel');
+  q1val = val;
+  document.getElementById('fnext1').classList.add('show');
+}
+
+function goFS2(){
+  if(!q1val) return;
+  document.getElementById('fs1').classList.remove('active');
+  document.getElementById('fs2').classList.add('active');
+  var d = q2data[q1val];
+  document.getElementById('fq2').textContent = d.q;
+  var html = '';
+  d.opts.forEach(function(o){
+    html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.text+'</span></div>';
+  });
+  document.getElementById('fopts2').innerHTML = html;
+  q2val = '';
+}
+
+function goFS1(){
+  document.getElementById('fs2').classList.remove('active');
+  document.getElementById('fs1').classList.add('active');
+  document.getElementById('fresult').classList.remove('show');
+}
+
+function pickQ2(el, val){
+  document.querySelectorAll('#fopts2 .finder-opt').forEach(function(o){o.classList.remove('sel')});
+  el.classList.add('sel');
+  q2val = val;
+}
+
+function showFResult(){
+  if(!q2val) return;
+  var r = results[q2val];
+  if(!r) return;
+  document.getElementById('fs2').classList.remove('active');
+  var res = document.getElementById('fresult');
+  res.classList.add('show');
+  document.getElementById('rpill').textContent = r.pill;
+  document.getElementById('rtitle').textContent = r.title;
+  document.getElementById('rdesc').textContent = r.desc;
+  var html = '';
+  r.services.forEach(function(s){
+    html += '<div class="result-row"><span class="result-row-name">'+s.n+'</span>';
+    if(s.p) html += '<span class="result-row-price">'+s.p+'</span>';
+    html += '</div>';
+  });
+  document.getElementById('rservices').innerHTML = html;
+}
+
+function restartFinder(){
+  q1val=''; q2val='';
+  document.getElementById('fresult').classList.remove('show');
+  document.getElementById('fs2').classList.remove('active');
+  document.getElementById('fs1').classList.add('active');
+  document.querySelectorAll('.finder-opt').forEach(function(o){o.classList.remove('sel')});
+  document.getElementById('fnext1').classList.remove('show');
+}
+
+// ── Pricing tabs ──
+function showPTab(id, btn){
+  document.querySelectorAll('.pricing-panel').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.ptab').forEach(function(t){t.classList.remove('active')});
+  document.getElementById('pt-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
