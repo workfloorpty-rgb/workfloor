@@ -1084,9 +1084,8 @@
           <h3 style="font-size:18px;font-weight:800;margin-bottom:20px">Send a quote request</h3>
           <div class="contact-form-wrap">
             <input type="text" placeholder="Full Name" id="cf-name">
-            <input type="text" placeholder="Business name (optional)" id="cf-business">
+            <input type="email" placeholder="Email address" id=cf-email">
             <input type="tel" placeholder="WhatsApp / phone number" id="cf-phone">
-            <input type="email" placeholder="Email address" id=qm-email">
             <textarea placeholder="What do you need? (e.g. CIPC registration, B-BBEE, payroll)" id="cf-message"></textarea>
             <div class="contact-actions">
               <button class="btn-primary" onclick="sendQuoteEmail()">Request Quote</button>
@@ -1355,7 +1354,7 @@ function sendQuoteByWA(){
   var name = document.getElementById('qm-name').value.trim();
   var phone = document.getElementById('qm-phone').value.trim();
   if(quoteItems.length === 0){ alert('Please add services to your quote first.'); return; }
-  var msg = 'Hi Workfloor, I would like a quote for:\n\n';
+  var msg = 'Hi Workfloor, I would like to request these services:\n\n';
   quoteItems.forEach(function(item){ msg += '• ' + item.name + ' (' + item.price + ')\n'; });
   if(name) msg += '\nName: ' + name;
   if(phone) msg += '\nContact: ' + phone;
