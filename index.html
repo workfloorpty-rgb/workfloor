@@ -450,7 +450,7 @@
 
   /* ── Footer ── */
   footer { background: var(--black); padding: 48px 0 28px; }
-  .footer-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; margin-bottom: 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; }
   .footer-brand .logo { color: var(--white); margin-bottom: 12px; }
   .footer-brand p { font-size: 13px; color: #666; line-height: 1.6; max-width: 220px; font-weight: 600; }
   .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
@@ -1105,7 +1105,7 @@
       <div class="footer-brand">
         <a class="logo" href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
           <img src="logo.png" alt="Workfloor" style="height: 60px; width: auto;">
-          <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#0f0f0f; letter-spacing:2px;">WORKFLOOR</span>
+          <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#ffffff; letter-spacing:2px;">WORKFLOOR</span>
         </div>
         <p style="margin-top:12px">SMME business support — registrations, tenders, payroll, admin, and design. Nationwide.</p>
         <div class="footer-social" style="margin-top:16px">
@@ -1146,7 +1146,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="https://wa.me/27632238772">WhatsApp: 063 223 8772</a>
-        <a href="mailto:consulting@workfloor.co.za">consulting@workfloor.co.za</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=consulting@workfloor.co.za" target="_blank">consulting@workfloor.co.za</a>
         <a href="https://workfloor.co.za">workfloor.co.za</a>
       </div>
     </div>
@@ -1315,22 +1315,30 @@ function sendQuoteByEmail(){
   if(!name){ alert('Please enter your name.'); return; }
   if(!email){ alert('Please enter your email address.'); return; }
   if(!phone){ alert('Please enter your phone number.'); return; }
+
+  var total = quoteItems.reduce(function(sum, item){
+    var price = parseFloat(item.price.toString().replace(/[^0-9.]/g, ''));
+    return sum + (isNaN(price) ? 0 : price);
+  }, 0);
+
   var itemNames = quoteItems.map(function(i){ return i.name; }).join(', ');
-    var form = document.createElement('form');
+
+  var form = document.createElement('form');
   form.method = 'POST';
   form.action = 'https://www.payfast.co.za/eng/process';
-    var fields = {
+
+  var fields = {
     merchant_id: '34831829',
     merchant_key: 'zrg6mgmvyvp1q',
     return_url: 'https://workfloor.co.za',
     cancel_url: 'https://workfloor.co.za',
     name_first: name,
+    email_address: email,
     cell_number: phone,
-    email_address: email
     amount: total.toFixed(2),
     item_name: itemNames.substring(0, 100)
   };
-  
+
   for(var key in fields){
     var input = document.createElement('input');
     input.type = 'hidden';
@@ -1338,7 +1346,7 @@ function sendQuoteByEmail(){
     input.value = fields[key];
     form.appendChild(input);
   }
-  
+
   document.body.appendChild(form);
   form.submit();
 }
