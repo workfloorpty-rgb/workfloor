@@ -579,7 +579,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-eyebrow"><span></span>SMME support · Nationwide</div>
-    <h1>We help South African businesses <em>start, comply,</em> and grow.</h1>
+    <h1>We help South African businesses <em>START</em>, <em>COMPLY</em>, and <em>GROW</em>
     <p class="hero-sub">From your first company registration to government tenders, payroll, and a clean back office — Workfloor handles what slows you down.</p>
     <div class="hero-actions">
       <button class="btn-wa" onclick="openWA()">
@@ -853,9 +853,9 @@
     <div class="pricing-panel" id="pt-payroll">
       <div class="pricing-grid">
         <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Digital jumpstart setup (payroll)','R1 800+',this)">Add</button>
+          <button class="price-card-add" onclick="addToQuote('Digital jumpstart setup (payroll)','Custom Setup',this)">Add</button>
           <div class="price-name">Employers</div>
-          <div class="price-amount">R1 800+</div>
+          <div class="price-amount">Custome Setup</div>
           <div class="price-note">Once-off digital jumpstart setup</div>
           <ul class="price-features">
             <li>Monthly payroll processing</li>
@@ -868,8 +868,8 @@
         </div>
         <div class="price-card featured">
           <button class="price-card-add" onclick="addToQuote('Payslip generation (per employee/month)','R180–R250',this)">Add</button>
-          <div class="price-name">Per payslip</div>
-          <div class="price-amount">R180–R250</div>
+          <div class="price-name">payslip</div>
+          <div class="price-amount">Custom</div>
           <div class="price-note">Per employee per month</div>
           <ul class="price-features">
             <li>Medical aid loan-ready payslip</li>
@@ -882,12 +882,12 @@
           <button class="price-card-add" onclick="addToQuote('Payroll add-ons (custom)','Custom quote',this)">Add</button>
           <div class="price-name">Add-ons</div>
           <div class="price-amount">Custom</div>
-          <div class="price-note">Invoice &amp; supplier management</div>
+          <div class="price-note">Select individually below</div>
           <ul class="price-features">
-            <li>Invoice management</li>
-            <li>Supplier management</li>
-            <li>Staff register &amp; timesheets</li>
-            <li>Employment letters &amp; contracts</li>
+            <li>Invoice management<button class="price-card-add" onclick="addToQuote('Invoice management','Custom quote',this)">Add</button></li>
+            <li>Supplier management<button class="price-card-add" onclick="addToQuote('Supplier management','Custom quote',this)">Add</button></li>
+            <li>Staff register &amp; timesheets<button class="price-card-add" onclick="addToQuote('Staff register & timesheets','Custom quote',this)">Add</button></li>
+            <li>Employment letters &amp; contracts<button class="price-card-add" onclick="addToQuote('Employment letters & contracts','Custom quote',this)">Add</button></li>
           </ul>
         </div>
       </div>
@@ -1128,7 +1128,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           </a>
           <!-- Email -->
-          <a href="mailto:consulting@workfloor.co.za" title="Email">
+          <a href="https://mail.google.com/mail/?view=cm&to=consulting@workfloor.co.za" target="_blank" title="Email">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </a>
           <!-- Facebook -->
@@ -1324,13 +1324,15 @@ function sendQuoteByEmail(){
   var name = document.getElementById('qm-name').value.trim();
   var phone = document.getElementById('qm-phone').value.trim();
   if(quoteItems.length === 0){ alert('Please add services to your quote first.'); return; }
+if(!name){ alert('Please enter your name.'); return; }
+if(!phone){ alert('Please enter your phone number.'); return; }
   var subject = 'Quote Request — Workfloor';
   var body = 'Hi Workfloor,\n\nI would like a quote for the following services:\n\n';
   quoteItems.forEach(function(item){ body += '• ' + item.name + ' (' + item.price + ')\n'; });
   if(name) body += '\nName: ' + name;
   if(phone) body += '\nContact: ' + phone;
   body += '\n\nKind regards';
-  window.location.href = 'mailto:consulting@workfloor.co.za?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.open('https://mail.google.com/mail/?view=cm&to=consulting@workfloor.co.za&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body), '_blank');
 }
 
 function sendQuoteByWA(){
