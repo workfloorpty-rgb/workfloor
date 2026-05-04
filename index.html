@@ -1083,9 +1083,10 @@
         <div>
           <h3 style="font-size:18px;font-weight:800;margin-bottom:20px">Send a quote request</h3>
           <div class="contact-form-wrap">
-            <input type="text" placeholder="Your name" id="cf-name">
+            <input type="text" placeholder="Full Name" id="cf-name">
             <input type="text" placeholder="Business name (optional)" id="cf-business">
-            <input type="tel" placeholder="WhatsApp number" id="cf-phone">
+            <input type="tel" placeholder="WhatsApp / phone number" id="cf-phone">
+            <input type="email" placeholder="Email address" id=qm-email">
             <textarea placeholder="What do you need? (e.g. CIPC registration, B-BBEE, payroll)" id="cf-message"></textarea>
             <div class="contact-actions">
               <button class="btn-primary" onclick="sendQuoteEmail()">Request Quote</button>
@@ -1186,7 +1187,7 @@
       <input type="tel" placeholder="WhatsApp / phone number" id="qm-phone">
     </div>
     <div class="quote-modal-actions">
-      <button class="btn-primary" onclick="sendQuoteByEmail()">Submit My Quote (Email)</button>
+      <button class="btn-primary" onclick="sendQuoteByEmail()">💳 Pay Now</button>
       <button class="btn-wa" style="padding:12px 20px;font-size:14px" onclick="sendQuoteByWA()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp
@@ -1308,17 +1309,38 @@ function closeQuoteModalOnOverlay(e){
 
 function sendQuoteByEmail(){
   var name = document.getElementById('qm-name').value.trim();
+  var email = document.getElementById('qm-email').value.trim();
   var phone = document.getElementById('qm-phone').value.trim();
   if(quoteItems.length === 0){ alert('Please add services to your quote first.'); return; }
-if(!name){ alert('Please enter your name.'); return; }
-if(!phone){ alert('Please enter your phone number.'); return; }
-  var subject = 'Quote Request — Workfloor';
-  var body = 'Hi Workfloor,\n\nI would like a quote for the following services:\n\n';
-  quoteItems.forEach(function(item){ body += '• ' + item.name + ' (' + item.price + ')\n'; });
-  if(name) body += '\nName: ' + name;
-  if(phone) body += '\nContact: ' + phone;
-  body += '\n\nKind regards';
-  window.open('https://mail.google.com/mail/?view=cm&to=consulting@workfloor.co.za&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body), '_blank');
+  if(!name){ alert('Please enter your name.'); return; }
+  if(!email){ alert('Please enter your email address.'); return; }
+  if(!phone){ alert('Please enter your phone number.'); return; }
+  var itemNames = quoteItems.map(function(i){ return i.name; }).join(', ');
+    var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://www.payfast.co.za/eng/process';
+    var fields = {
+    merchant_id: '34831829',
+    merchant_key: 'zrg6mgmvyvp1q',
+    return_url: 'https://workfloor.co.za',
+    cancel_url: 'https://workfloor.co.za',
+    name_first: name,
+    cell_number: phone,
+    email_address: email
+    amount: total.toFixed(2),
+    item_name: itemNames.substring(0, 100)
+  };
+  
+  for(var key in fields){
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = fields[key];
+    form.appendChild(input);
+  }
+  
+  document.body.appendChild(form);
+  form.submit();
 }
 
 function sendQuoteByWA(){
