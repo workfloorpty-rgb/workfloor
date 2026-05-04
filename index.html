@@ -147,7 +147,7 @@
     transition: background 0.2s;
   }
   .btn-wa:hover { background: #2a2a2a; }
-  .trust-bar { display: flex; gap: 28px; flex-wrap: wrap; }
+  .trust-bar { display: flex; gap: 32px; justify-content: space-between; width: 100%; }
   .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); font-weight: 600; }
   .trust-dot { width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
 
@@ -549,6 +549,7 @@
     <div class="nav-inner">
       <a class="logo" href="#">
        <img src="logo.png" alt="Workfloor" style="height: 60px; width: auto;">
+       <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#0f0f0f; letter-spacing:2px;">WORKFLOOR</span>
       </a>
       <div class="nav-links">
         <a href="#services" onclick="showHomepage(); setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),50)">Home</a>
@@ -578,7 +579,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-eyebrow"><span></span>SMME support · Nationwide</div>
-      <h1>We help South African businesses <em>START</em>, <em>COMPLY</em>, and <em>GROW</em>
+      <h1>We help South African businesses<br><em>START</em>, <em>COMPLY</em>, and <em>GROW</em>
     <p class="hero-sub">From your first company registration to government tenders, payroll, and a clean back office — Workfloor handles what slows you down.</p>
     <div class="hero-actions">
        <button class="btn-primary" onclick="document.getElementById('finder-section').scrollIntoView({behavior:'smooth'})">Find what you need →</button>
@@ -1060,7 +1061,8 @@
           <div class="topic-title">What is COIDA and why every employer is legally required to register</div>
         </div>
       </div>
-      <button class="btn-yellow show" style="display:inline-block" onclick="openWA()">Follow our content — ask us on WhatsApp →</button>
+      <a href="https://www.tiktok.com/@work.floor" target="_blank" class="btn-yellow show" style="display:inline-block; margin-right:10px; text-decoration:none;">TikTok</a>
+      <a href="https://web.facebook.com/profile.php?id=61560654827814" target="_blank" class="btn-yellow show" style="display:inline-block; text-decoration:none;">Facebook</a>
     </div>
   </div>
 </div><!-- /view-learn -->
@@ -1087,21 +1089,7 @@
             <div class="contact-actions">
               <button class="btn-primary" onclick="sendQuoteEmail()">Request Quote</button>
               <button class="btn-callback" onclick="requestCallback()">Request Callback</button>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h3 style="font-size:18px;font-weight:800;margin-bottom:20px">Contact details</h3>
-          <div style="display:flex;flex-direction:column;gap:16px">
-            <a href="https://wa.me/27632238772" style="display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px">
-              <span style="width:40px;height:40px;background:#25D366;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:20px">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-              </span>
-              063 223 8772
-            </a>
-          </div>
-        </div>
-      </div>
+            </div>    
     </section>
   </div>
 </div><!-- /view-contact -->
@@ -1113,8 +1101,9 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo" style="color:var(--white)">
-          <div class="logo-mark">W</div>Workfloor
+        <a class="logo" href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+          <img src="logo.png" alt="Workfloor" style="height: 60px; width: auto;">
+          <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#0f0f0f; letter-spacing:2px;">WORKFLOOR</span>
         </div>
         <p style="margin-top:12px">SMME business support — registrations, tenders, payroll, admin, and design. Nationwide.</p>
         <div class="footer-social" style="margin-top:16px">
@@ -1155,11 +1144,12 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="https://wa.me/27632238772">WhatsApp: 063 223 8772</a>
+        <a href="mailto:consulting@workfloor.co.za">consulting@workfloor.co.za</a>
         <a href="https://workfloor.co.za">workfloor.co.za</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Workfloor (Pty) Ltd. All rights reserved.</p>
+      <p>&copy; 2024 Workfloor (Pty) Ltd. All rights reserved.</p>
       <p style="color:#333">workfloor.co.za</p>
     </div>
   </div>
@@ -1195,7 +1185,7 @@
       <input type="tel" placeholder="WhatsApp / phone number" id="qm-phone">
     </div>
     <div class="quote-modal-actions">
-      <button class="btn-primary" onclick="sendQuoteByEmail()">📧 Request Quote (Email)</button>
+      <button class="btn-primary" onclick="sendQuoteByEmail()">Submit My Quote (Email)</button>
       <button class="btn-wa" style="padding:12px 20px;font-size:14px" onclick="sendQuoteByWA()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp
