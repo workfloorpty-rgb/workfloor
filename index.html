@@ -636,7 +636,7 @@
         <div class="finder-opts" id="fopts2"></div>
         <div class="finder-actions">
           <button class="btn-back show" onclick="goFS1()">← Back</button>
-          <button class="btn-yellow show" onclick="showFResult()">Show me what I need →</button>
+          <button class="btn-yellow show" onclick="showFResult()">Next →</button>
         </div>
       </div>
 
@@ -650,7 +650,7 @@
           <button class="btn-yellow show" onclick="openWA()" style="display:inline-block">WhatsApp us to get started</button>
           <button class="btn-yellow show" onclick="openQuoteModal()" style="display:inline-block;background:#333;color:var(--white)">View my quote</button>
         </div>
-        <button class="btn-restart" onclick="restartFinder()">← Start over</button>
+        <button class="btn-restart" onclick="restartFinder()">← back</button>
       </div>
 
     </div>
@@ -1441,7 +1441,7 @@ function pickQ2(el, val){
 }
 
 function showFResult(){
-  if(!q2val) return;
+  if(!q2val) { alert('Please choose at least 1 option first.'); return; };
   var r = results[q2val];
   if(!r) return;
   document.getElementById('fs2').classList.remove('active');
