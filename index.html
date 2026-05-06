@@ -183,7 +183,7 @@
   .finder-opt:hover { border-color: #666; }
   .finder-opt.sel { border-color: var(--yellow); background: #2a2500; }
   .finder-opt-icon { font-size: 20px; margin-bottom: 8px; display: block; }
-  .finder-opt-text { font-size: 13px; color: #ccc; line-height: 1.4; font-weight: 700; }
+  .finder-opt-text { font-size: 16px; color: #ccc; line-height: 1.4; font-weight: 700; }
   .finder-opt.sel .finder-opt-text { color: var(--yellow); }
   .finder-actions { display: flex; align-items: center; gap: 12px; }
   .btn-yellow {
@@ -742,8 +742,8 @@
     <span style="border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:4px 12px; font-size:13px; color:rgba(255,255,255,0.8);">Compliance folder</span>
   </div>
 
-  <button class="btn-primary" style="width:100%; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
-  <button class="btn-secondary" style="width:100%;">Request a callback</button>
+  <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
+  <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback
       
 </div>
       
@@ -1420,7 +1420,7 @@ function goFS1(){
 }
 
 function pickQ2(el, val){
-  document.querySelectorAll('#fopts2 .finder-opt').forEach(function(o){o.classList.remove('sel')});
+  document.querySelectorAll('#fopts2 ').forEach(function(o){o.classList.remove('sel')});
   el.classList.add('sel');
   q2val = val;
 }
