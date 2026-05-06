@@ -1400,18 +1400,21 @@ function pickQ1(el, val){
 }
 
 function goFS2(){
-  document.getElementById('fresult').style.display = 'none'; // add this
+  document.getElementById('fresult').style.display = 'none';
+  document.getElementById('fresult').classList.remove('show');
   if(!q1val) return;
   document.getElementById('fs1').classList.remove('active');
   document.getElementById('fs2').classList.add('active');
+  var d = q2data[q1val];
+  document.getElementById('fq2').textContent = d.q;
   var html = '';
   d.opts.forEach(function(o){
-    html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.text+'</span></div>';
+    html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.label+'</span></div>';
   });
   document.getElementById('fopts2').innerHTML = html;
   q2val = '';
 }
-
+  
 function goFS1(){
   document.getElementById('fs2').classList.remove('active');
   document.getElementById('fs1').classList.add('active');
