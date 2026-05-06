@@ -648,7 +648,7 @@
         <div class="result-services" id="rservices"></div>
         <div class="result-btns">   
         </div>
-        <button class="btn-restart" onclick="restartFinder()">← back</button>
+        <button class="btn-restart" onclick="goFS2()">← back</button>
       </div>
 
     </div>
@@ -1345,8 +1345,8 @@ var q2data = {
   registered: {
     q: "What's missing from your compliance pack?",
     opts: [
-      {icon:'💰', text:'Get my SARS tax pin', val:'sars'},
-      {icon:'🏦', text:'Open a business bank account', val:'bank'},
+      {icon:'💰', text:'Fix my SARS', val:'sars'},
+      {icon:'🏦', text:'Open a Business bank account', val:'bank'},
       {icon:'📋', text:'B-BBEE certificate', val:'bbee'},
       {icon:'🗂️', text:'CSD registration', val:'csd'},
       {icon:'🛡️', text:'COIDA / labour compliance', val:'coida'},
@@ -1375,8 +1375,8 @@ var q2data = {
 
 var results = {
   cipc:{pill:'Pillar 1 · Start your business',title:'Company registration',desc:'We register your company with CIPC and set up your SARS tax pin. You only need your ID.',services:[{n:'CIPC new company registration',p:'R450'},{n:'Re-register company',p:'R1750'},{n:'Remove/Add Director',p:'R350'},{n:'Change director details',p:'R450'},{n:'Deregister Company',p:'R800'}]},
-  sars:{pill:'Pillar 1 · Start your business',title:'SARS tax setup',desc:'Get your tax pin, eFiling profile, and representative registered correctly from day one.',services:[{n:'SARS register representative',p:'R750'},{n:'Requesting SARS Tax Pin only',p:'R125'},{n:'Create eFilling Account',p:'R250'},{n:'SARS register representative',p:'R750'},{n:'SARS register representative',p:'R750'},{n:'Income tax filing p.a.',p:'R175'},{n:'Provisional tax p.a.',p:'R50'}]},
-  starter:{pill:'Pillar 1 + 2 · Full starter',title:'RFQ / Company starter pack',desc:'Everything you need to start quoting government — in 1 to 7 days. Just bring your ID.',services:[{n:'CIPC CK document',p:''},{n:'SARS tax certificate',p:''},{n:'B-BBEE certificate',p:''},{n:'CSD full report',p:''},{n:'Business bank account',p:''},{n:'Quote template',p:''},{n:'Full package',p:'R875'}]},
+  sars:{pill:'Pillar 1 · Start your business',title:'SARS tax setup',desc:'Get your tax pin, eFiling profile, and representative registered correctly from day one.',services:[{n:'SARS register representative'},{n:'Requesting SARS Tax Pin only'},{n:'Create eFilling Account'},{n:'SARS register representative'},{n:'SARS register representative'},{n:'Income tax filing p.a.'},{n:'Provisional tax p.a.'}]},
+  starter:{pill:'Pillar 1 + 2 · Full starter',title:'RFQ / Company starter pack',desc:'Everything you need to start quoting government — in 1 to 7 days. Just bring your ID.',services:[{n:'CIPC CK document',p:''},{n:'SARS tax certificate',p:''},{n:'B-BBEE certificate',p:''},{n:'CSD full report',p:''},{n:'Business bank account',p:''},{n:'Quote template',p:''},{n:'Full package',p:'R1275'}]},
   bank:{pill:'Pillar 1 · Start your business',title:'Business bank account',desc:'We assist you in opening the right business account for your company size and needs.',services:[{n:'Business account setup assistance',p:'R250'}]},
   bbee:{pill:'Pillar 1 · Compliance',title:'B-BBEE certification',desc:'Get your B-BBEE sworn affidavit or CIPC certificate — required for most tenders and RFQs.',services:[{n:'B-BBEE sworn affidavit',p:'R200'},{n:'B-BBEE CIPC certificate',p:'R150'}]},
   csd:{pill:'Pillar 1 · Compliance',title:'CSD registration',desc:'Central Supplier Database — mandatory for all government suppliers. We register and maintain yours.',services:[{n:'New CSD registration',p:'R450'},{n:'CSD edit — commodities',p:'R350'}]},
