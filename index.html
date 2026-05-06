@@ -804,182 +804,314 @@
     </div>
     <section class="section" style="padding-top:24px">
     <div class="pricing-tabs">
-      <button class="ptab active" id="ptab-registrations" onclick="showPTab('registrations',this)">Registrations</button>
-      <button class="ptab" id="ptab-tenders" onclick="showPTab('tenders',this)">Tenders &amp; RFQs</button>
-      <button class="ptab" id="ptab-docs" onclick="showPTab('docs',this)">Business docs</button>
-      <button class="ptab" id="ptab-brand" onclick="showPTab('brand',this)">Brand &amp; design</button>
-    </div>
+        <!-- CIPC -->
+  <div class="tab-panel active" id="panel-cipc">
+    <div class="section-label">Company Registration</div>
+    <div class="price-row"><span class="price-name">New PTY (Ltd) registration</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">New NPC / NPO registration</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">External company registration</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">CC to PTY conversion</span><span class="price-amount">R950</span></div>
 
-    <div class="pricing-panel active" id="pt-registrations">
-      <div class="simple-list">
-        <div class="simple-row"><span><strong>CIPC new company registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R450</span><button class="simple-row-add" onclick="addToQuote('CIPC new company registration','R450',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIPC restore deregistered company</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R1 750</span><button class="simple-row-add" onclick="addToQuote('CIPC restore deregistered company','R1 750',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIPC deregistration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R800</span><button class="simple-row-add" onclick="addToQuote('CIPC deregistration','R800',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIPC amendment</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R355</span><button class="simple-row-add" onclick="addToQuote('CIPC amendment','R355',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIPC BO &amp; annual returns</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R575</span><button class="simple-row-add" onclick="addToQuote('CIPC BO & annual returns','R575',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIPC company name change</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R450</span><button class="simple-row-add" onclick="addToQuote('CIPC company name change','R450',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>SARS tax pin + eFiling</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R125</span><button class="simple-row-add" onclick="addToQuote('SARS tax pin + eFiling','R125',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>SARS income tax p.a.</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R175</span><button class="simple-row-add" onclick="addToQuote('SARS income tax p.a.','R175',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>SARS provisional tax p.a.</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R50</span><button class="simple-row-add" onclick="addToQuote('SARS provisional tax p.a.','R50',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>SARS register representative</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R750</span><button class="simple-row-add" onclick="addToQuote('SARS register representative','R750',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>SARS VAT registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R1 550</span><button class="simple-row-add" onclick="addToQuote('SARS VAT registration','R1 550',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>B-BBEE sworn affidavit</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R200</span><button class="simple-row-add" onclick="addToQuote('B-BBEE sworn affidavit','R200',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>B-BBEE CIPC certificate</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R150</span><button class="simple-row-add" onclick="addToQuote('B-BBEE CIPC certificate','R150',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>New CSD registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R450</span><button class="simple-row-add" onclick="addToQuote('New CSD registration','R450',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CSD edit — commodities</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R350</span><button class="simple-row-add" onclick="addToQuote('CSD edit — commodities','R350',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Business bank account</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R250</span><button class="simple-row-add" onclick="addToQuote('Business bank account','R250',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>COIDA new registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R2 550</span><button class="simple-row-add" onclick="addToQuote('COIDA new registration','R2 550',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>COIDA annual return filing</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R450</span><button class="simple-row-add" onclick="addToQuote('COIDA annual return filing','R450',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>NCCA registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R2 750</span><button class="simple-row-add" onclick="addToQuote('NCCA registration','R2 750',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIDB (includes assessment fee)</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R950</span><button class="simple-row-add" onclick="addToQuote('CIDB (includes assessment fee)','R950',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Public liability insurance</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R1 325</span><button class="simple-row-add" onclick="addToQuote('Public liability insurance','R1 325',this)">Add</button></span></div>
-      </div>
-    </div>
+    <div class="section-label">Name Changes & Reservations</div>
+    <div class="price-row"><span class="price-name">Name reservation only</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Company name change</span><span class="price-amount">R550</span></div>
+    <div class="price-row"><span class="price-name">Name reservation extension</span><span class="price-amount">R250</span></div>
 
-    <div class="pricing-panel" id="pt-tenders">
-      <div class="simple-list" style="margin-bottom:24px">
-        <div class="simple-row"><span style="font-weight:800">RFQ/Company starter package</span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price" style="color:var(--black);font-weight:800;font-size:16px">R875</span><button class="simple-row-add" onclick="addToQuote('RFQ/Company starter package','R875',this)">Add</button></span></div>
-        <div class="simple-row" style="padding-left:16px;font-size:13px;color:var(--muted)"><span><strong>Includes: CIPC CK doc, SARS cert, B-BBEE cert, CSD report, business account, quote template</strong></span><span></span></div>
-        <div class="simple-row"><span><strong>RFQ compilation &amp; sending</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R750</span><button class="simple-row-add" onclick="addToQuote('RFQ compilation & sending','R750',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Tender document compiling &amp; sending</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">Quote </span><button class="simple-row-add" onclick="addToQuote('Tender document compiling & sending','Quote',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Briefing attendance</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">Quote</span><button class="simple-row-add" onclick="addToQuote('Briefing attendance','R250',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>CIDB registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R950</span><button class="simple-row-add" onclick="addToQuote('CIDB registration','R950',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>NCCA registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R2 750</span><button class="simple-row-add" onclick="addToQuote('NCCA registration','R2 750',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Public liability insurance</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R1 325</span><button class="simple-row-add" onclick="addToQuote('Public liability insurance','R1 325',this)">Add</button></span></div>
-      </div>
-    </div>
+    <div class="section-label">Director Amendments</div>
+    <div class="price-row"><span class="price-name">Add new director</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">Remove / resign director</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">Forceful removal of director</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">Update director personal details</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Transfer of deceased director</span><span class="price-amount">R750</span></div>
 
-    <div class="pricing-panel" id="pt-docs">
-      <div class="pricing-grid" style="margin-bottom:24px">
-        <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Company profile — Basic','R1 050',this)">Add</button>
-          <div class="price-name">Company profile — Basic</div>
-          <div class="price-amount">R1 050</div>
-          <div class="price-note">4–5 pages, standard template</div>
-          <ul class="price-features">
-            <li>About us, services, vision &amp; mission</li>
-            <li>Professional layout</li>
-            <li>PDF format</li>
-            <li>1 round of revisions</li>
-          </ul>
-        </div>
-        <div class="price-card featured">
-          <button class="price-card-add" onclick="addToQuote('Company profile — Standard','R1 725',this)">Add</button>
-          <div class="price-name">Company profile — Standard</div>
-          <div class="price-amount">R1 725</div>
-          <div class="price-note">6–8 pages, brand colours applied</div>
-          <ul class="price-features">
-            <li>Custom-designed layout</li>
-            <li>Content structuring &amp; rewriting</li>
-            <li>Compliance section (CK, B-BBEE, Tax)</li>
-            <li>PDF + editable version</li>
-            <li>2 rounds of revisions</li>
-          </ul>
-        </div>
-        <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Company profile — Premium','R2 250',this)">Add</button>
-          <div class="price-name">Company profile — Premium</div>
-          <div class="price-amount">R2 250</div>
-          <div class="price-note">10–12 pages, fully custom</div>
-          <ul class="price-features">
-            <li>Professional copywriting</li>
-            <li>Organogram &amp; project highlights</li>
-            <li>Compliance &amp; credentials section</li>
-            <li>PDF + editable source file</li>
-            <li>Up to 3 rounds of revisions</li>
-          </ul>
-        </div>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Business plan — Basic','R2 800',this)">Add</button>
-          <div class="price-name">Business plan — Basic</div>
-          <div class="price-amount">R2 800</div>
-          <div class="price-note">Executive summary to 3-year overview</div>
-          <ul class="price-features">
-            <li>Business overview &amp; services</li>
-            <li>Basic marketing strategy</li>
-            <li>3-year financial overview</li>
-            <li>PDF + 1 revision</li>
-          </ul>
-        </div>
-        <div class="price-card featured">
-          <button class="price-card-add" onclick="addToQuote('Business plan — Standard','R3 600',this)">Add</button>
-          <div class="price-name">Business plan — Standard</div>
-          <div class="price-amount">R3 600</div>
-          <div class="price-note">Full plan with financials</div>
-          <ul class="price-features">
-            <li>Industry &amp; competitor analysis</li>
-            <li>3–5 year financial projections</li>
-            <li>Risk analysis &amp; mitigation</li>
-            <li>PDF + editable version</li>
-          </ul>
-        </div>
-        <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Business plan — Funding ready','R5 850',this)">Add</button>
-          <div class="price-name">Business plan — Funding ready</div>
-          <div class="price-amount">R5 850</div>
-          <div class="price-note">Built for funders &amp; investors</div>
-          <ul class="price-features">
-            <li>Funding-grade executive summary</li>
-            <li>5-year financial projections</li>
-            <li>Cash flow &amp; break-even analysis</li>
-            <li>Funding use &amp; repayment strategy</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="section-label">Address & MOI Amendments</div>
+    <div class="price-row"><span class="price-name">Change registered / business address</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">MOI amendment (general)</span><span class="price-amount">R550</span></div>
+    <div class="price-row"><span class="price-name">Share structure change</span><span class="price-amount">R650</span></div>
 
-    <div class="pricing-panel" id="pt-brand">
-      <div class="simple-list" style="margin-bottom:24px">
-        <div class="simple-row"><span><strong>Logo with mockup</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R400</span><button class="simple-row-add" onclick="addToQuote('Logo with mockup','R400',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Flyer / poster design</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R300</span><button class="simple-row-add" onclick="addToQuote('Flyer / poster design','R300',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Business card</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R200</span><button class="simple-row-add" onclick="addToQuote('Business card','R200',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Letterhead</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R275</span><button class="simple-row-add" onclick="addToQuote('Letterhead','R275',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Quote / invoice template</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R180</span><button class="simple-row-add" onclick="addToQuote('Quote / invoice template','R180',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Social media post design</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R200</span><button class="simple-row-add" onclick="addToQuote('Social media post design','R200',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Email signature</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R150</span><button class="simple-row-add" onclick="addToQuote('Email signature','R150',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Company profile document</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">Quote</span><button class="simple-row-add" onclick="addToQuote('Company profile document','Quote',this)">Add</button></span></div>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Website — Basic',this)">Add</button>
-          <div class="price-name">Website — Basic</div>
-          <div class="price-amount">Quote</div>
-          <div class="price-note">hosting &amp; maintenance</div>
-          <ul class="price-features">
-            <li>5 pages + free domain &amp; email</li>
-            <li>20GB storage, Google listing</li>
-            <li>Basic SEO + contact form</li>
-            <li>2 formal email addresses</li>
-          </ul>
-        </div>
-        <div class="price-card featured">
-          <button class="price-card-add" onclick="addToQuote('Website — Advanced',this)">Add</button>
-          <div class="price-name">Website — Advanced</div>
-          <div class="price-amount">Quote</div>
-          <div class="price-note">hosting &amp; maintenance</div>
-          <ul class="price-features">
-            <li>8 pages + free domain &amp; email</li>
-            <li>SSL certificate + advanced CDN</li>
-            <li>On-page SEO</li>
-            <li>5 formal email addresses</li>
-          </ul>
-        </div>
-        <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Website — Premium',this)">Add</button>
-          <div class="price-name">Website — Premium</div>
-          <div class="price-amount">Quote</div>
-          <div class="price-note">hosting &amp; maintenance</div>
-          <ul class="price-features">
-            <li>15+ pages + free domain &amp; email</li>
-            <li>Advanced SEO + support</li>
-            <li>50GB storage</li>
-            <li>5 formal email addresses</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="section-label">Annual Returns & Compliance</div>
+    <div class="price-row"><span class="price-name">Annual return filing (turnover &lt; R1M)</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Annual return filing (turnover &gt; R1M)</span><span class="price-amount">R500+</span></div>
+    <div class="price-row"><span class="price-name">Beneficial ownership declaration</span><span class="price-amount">R250</span></div>
+    <div class="price-row"><span class="price-name">Annual return + BO combo</span><span class="price-amount">R550</span></div>
+    <div class="price-row"><span class="price-name">Outstanding / catch-up returns (per year)</span><span class="price-amount">R400</span></div>
+
+    <div class="section-label">Deregistration & Reinstatement</div>
+    <div class="price-row"><span class="price-name">Voluntary deregistration</span><span class="price-amount">R800</span></div>
+    <div class="price-row"><span class="price-name">Company reinstatement</span><span class="price-amount">R1 750</span></div>
+
+    <div class="section-label">Documents & Certificates</div>
+    <div class="price-row"><span class="price-name">Retrieve company documents / CoR</span><span class="price-amount">R200</span></div>
+    <div class="price-row"><span class="price-name">Certified company documents</span><span class="price-amount">R250</span></div>
+  </div>
+
+  <!-- SARS -->
+  <div class="tab-panel" id="panel-sars">
+    <div class="section-label">Tax Registration</div>
+    <div class="price-row"><span class="price-name">Income tax registration (company)</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Tax PIN / eFiling setup</span><span class="price-amount">R250</span></div>
+    <div class="price-row"><span class="price-name">PAYE registration</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">UIF registration</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">SDL registration</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">VAT registration</span><span class="price-amount">R1 550</span></div>
+    <div class="price-row"><span class="price-name">Provisional tax registration</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Register representative taxpayer</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">SARS eFiling profile setup / link company</span><span class="price-amount">R250</span></div>
+
+    <div class="section-label">Amendments & Updates</div>
+    <div class="price-row"><span class="price-name">Update registered representative</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">Change banking details at SARS</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Update company / director details</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Merge tax types / profiles</span><span class="price-amount">R450</span></div>
+
+    <div class="section-label">Compliance & Returns</div>
+    <div class="price-row"><span class="price-name">Tax compliance status (TCS) pin</span><span class="price-amount">R250</span></div>
+    <div class="price-row"><span class="price-name">Income tax return (ITR14)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Provisional tax return (IRP6)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">VAT return (VAT201)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">PAYE reconciliation (EMP501)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Tax debt arrangement / payment plan</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">SARS audit / dispute / objection</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Dormant company annual tax filings</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- CSD -->
+  <div class="tab-panel" id="panel-csd">
+    <div class="section-label">Registrations</div>
+    <div class="price-row"><span class="price-name">New CSD registration</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">CSD + CIPC + SARS combo package</span><span class="price-amount">R850</span></div>
+
+    <div class="section-label">Profile Management</div>
+    <div class="price-row"><span class="price-name">Add / edit commodities</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">Update business address</span><span class="price-amount">R300</span></div>
+    <div class="price-row"><span class="price-name">Add / update banking details</span><span class="price-amount">R300</span></div>
+    <div class="price-row"><span class="price-name">Reactivate deactivated profile</span><span class="price-amount">R400</span></div>
+    <div class="price-row"><span class="price-name">Quarterly CSD maintenance update</span><span class="price-amount">R250 per quarter</span></div>
+    <div class="price-row"><span class="price-name">Add BEE affidavit / certificate to CSD</span><span class="price-amount">R200</span></div>
+
+    <div class="section-label">Documents</div>
+    <div class="price-row"><span class="price-name">Generate & download CSD report</span><span class="price-amount">R150</span></div>
+    <div class="price-row"><span class="price-name">Full CSD compliance check</span><span class="price-amount">R300</span></div>
+  </div>
+
+  <!-- COIDA & UIF -->
+  <div class="tab-panel" id="panel-coida">
+    <div class="section-label">COIDA</div>
+    <div class="price-row"><span class="price-name">New COIDA registration</span><span class="price-amount">R2 550</span></div>
+    <div class="price-row"><span class="price-name">Return of Earnings (ROE) submission</span><span class="price-amount">R650</span></div>
+    <div class="price-row"><span class="price-name">Letter of Good Standing (LOGS)</span><span class="price-amount">R650</span></div>
+    <div class="price-row"><span class="price-name">COIDA renewal (ROE + LOGS combo)</span><span class="price-amount">R1 100</span></div>
+    <div class="price-row"><span class="price-name">Full COIDA package (registration + ROE + LOGS)</span><span class="price-amount">R2 950</span></div>
+    <div class="price-row"><span class="price-name">Outstanding / catch-up ROE (per year)</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">COIDA amendments (address / employer details)</span><span class="price-amount">R350</span></div>
+
+    <div class="section-label">UIF</div>
+    <div class="price-row"><span class="price-name">New UIF employer registration</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">UIF filing (UI19)</span><span class="price-amount">R350 per employee</span></div>
+    <div class="price-row"><span class="price-name">UIF bulk filing (5+ employees)</span><span class="price-amount">R150 per employee</span></div>
+    <div class="price-row"><span class="price-name">UIF deregistration</span><span class="price-amount">R400</span></div>
+    <div class="price-row"><span class="price-name">UIF monthly declarations / payroll-linked submissions</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- CIDB -->
+  <div class="tab-panel" id="panel-cidb">
+    <div class="section-label">New Registrations</div>
+    <div class="price-row"><span class="price-name">Grade 1</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">Grade 2</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Grade 3</span><span class="price-amount">R2 200</span></div>
+    <div class="price-row"><span class="price-name">Grade 4</span><span class="price-amount">R3 200</span></div>
+    <div class="price-row"><span class="price-name">Grade 5</span><span class="price-amount">R4 500</span></div>
+    <div class="price-row"><span class="price-name">Grade 6</span><span class="price-amount">R5 500</span></div>
+    <div class="price-row"><span class="price-name">Grade 7–9</span><span class="price-amount quote">Quote</span></div>
+
+    <div class="section-label">Renewals & Upgrades</div>
+    <div class="price-row"><span class="price-name">Annual CIDB renewal (any grade)</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">Grade upgrade application</span><span class="price-amount">R1 500+</span></div>
+    <div class="price-row"><span class="price-name">PE (Potentially Emerging) status application</span><span class="price-amount">R950</span></div>
+
+    <div class="section-label">Support Services</div>
+    <div class="price-row"><span class="price-name">CIDB documents preparation</span><span class="price-amount">R500</span></div>
+    <div class="price-row"><span class="price-name">Joint venture registration support</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">CIDB compliance check</span><span class="price-amount">R300</span></div>
+  </div>
+
+  <!-- B-BBEE -->
+  <div class="tab-panel" id="panel-bbbee">
+    <div class="section-label">B-BBEE Certificates & Affidavits</div>
+    <div class="price-row"><span class="price-name">B-BBEE sworn affidavit (EME)</span><span class="price-amount">R350</span></div>
+    <div class="price-row"><span class="price-name">B-BBEE CIPC certificate</span><span class="price-amount">R250</span></div>
+    <div class="price-row"><span class="price-name">B-BBEE affidavit (QSE)</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">B-BBEE profile update on CSD</span><span class="price-amount">R200</span></div>
+    <div class="price-row"><span class="price-name">Formal B-BBEE verification / rating</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- NHBRC -->
+  <div class="tab-panel" id="panel-nhbrc">
+    <div class="section-label">Registrations & Renewals</div>
+    <div class="price-row"><span class="price-name">New NHBRC home builder registration</span><span class="price-amount">R2 200</span></div>
+    <div class="price-row"><span class="price-name">Annual NHBRC membership renewal</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">NHBRC compliance check</span><span class="price-amount">R350</span></div>
+
+    <div class="section-label">Enrolments & Certificates</div>
+    <div class="price-row"><span class="price-name">Home enrolment (new residential unit)</span><span class="price-amount">R850</span></div>
+    <div class="price-row"><span class="price-name">Late enrolment application</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">NHBRC certificate of enrolment</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">NHBRC certificate of completion</span><span class="price-amount">R450</span></div>
+    <div class="price-row"><span class="price-name">Subsidy housing enrolment (RDP / BNG)</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">Defect / warranty claim documentation</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">NHBRC technical compliance report</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Builder induction workshop facilitation</span><span class="price-amount">R500</span></div>
+  </div>
+
+  <!-- PSIRA -->
+  <div class="tab-panel" id="panel-psira">
+    <div class="section-label">PSIRA</div>
+    <div class="price-row"><span class="price-name">PSIRA security business registration</span><span class="price-amount">R4 500</span></div>
+    <div class="price-row"><span class="price-name">PSIRA individual officer grading support</span><span class="price-amount">R850</span></div>
+    <div class="price-row"><span class="price-name">PSIRA annual renewal</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">PSIRA compliance documentation pack</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">PSIRA grading exam / training referral</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- NCCA -->
+  <div class="tab-panel" id="panel-ncca">
+    <div class="section-label">Registrations & Compliance</div>
+    <div class="price-row"><span class="price-name">New NCCA membership registration</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">NCCA annual renewal</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">NCCA compliance documentation pack</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">NCCA good standing letter</span><span class="price-amount">R500</span></div>
+
+    <div class="section-label">Industry Requirements</div>
+    <div class="price-row"><span class="price-name">Cleaning company setup package (CIPC + SARS + CSD + COIDA + NCCA)</span><span class="price-amount">R5 500</span></div>
+    <div class="price-row"><span class="price-name">Occupational Health & Safety file (cleaning)</span><span class="price-amount">R1 800</span></div>
+    <div class="price-row"><span class="price-name">NCCA grading / category upgrade</span><span class="price-amount">R950</span></div>
+  </div>
+
+  <!-- HEALTH & SAFETY -->
+  <div class="tab-panel" id="panel-ohs">
+    <div class="section-label">Certificates & Files</div>
+    <div class="price-row"><span class="price-name">OHS file compilation (basic)</span><span class="price-amount">R1 800</span></div>
+    <div class="price-row"><span class="price-name">OHS file compilation (construction)</span><span class="price-amount">R2 500</span></div>
+    <div class="price-row"><span class="price-name">OHS file compilation (mining / heavy industry)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Health & Safety plan (project-specific)</span><span class="price-amount">R2 000</span></div>
+    <div class="price-row"><span class="price-name">Risk assessment compilation</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Method statement</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">Safe work procedure (SWP) documentation</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">Incident / accident report documentation</span><span class="price-amount">R750</span></div>
+
+    <div class="section-label">Registrations & Appointments</div>
+    <div class="price-row"><span class="price-name">Health & Safety Representative appointment</span><span class="price-amount">R650</span></div>
+    <div class="price-row"><span class="price-name">Health & Safety Committee setup</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">SAMTRAC / NEBOSH registration referral</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">OHS legal appointment letters</span><span class="price-amount">R850</span></div>
+
+    <div class="section-label">Inspections & Audits</div>
+    <div class="price-row"><span class="price-name">OHS compliance audit</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">OHS site inspection report</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- WASTE MANAGEMENT -->
+  <div class="tab-panel" id="panel-waste">
+    <div class="section-label">Registrations</div>
+    <div class="price-row"><span class="price-name">Waste management licence application</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Waste collector registration (DEA/DFFE)</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Hazardous waste handler registration</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Integrated waste management plan compilation</span><span class="price-amount quote">Quote</span></div>
+
+    <div class="section-label">Compliance Documents</div>
+    <div class="price-row"><span class="price-name">Waste manifest documentation</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">Waste management OHS file</span><span class="price-amount">R2 000</span></div>
+    <div class="price-row"><span class="price-name">Environmental compliance report</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Section 19 / 20 spill response plan</span><span class="price-amount">R1 500</span></div>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div class="tab-panel" id="panel-logistics">
+    <div class="section-label">Operator Permits & Registrations</div>
+    <div class="price-row"><span class="price-name">Operating licence application (RIMA/WIMA)</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Cross-border road transport permit</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">Abnormal load permit</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">Dangerous goods transport permit</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Vehicle roadworthy / registration facilitation</span><span class="price-amount">R500</span></div>
+
+    <div class="section-label">Freight & Compliance</div>
+    <div class="price-row"><span class="price-name">Customs registration (SARS importer/exporter)</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">SARS customs code application</span><span class="price-amount">R950</span></div>
+    <div class="price-row"><span class="price-name">NHBRC enrolment for logistics warehousing</span><span class="price-amount">R850</span></div>
+    <div class="price-row"><span class="price-name">Logistics company setup package (CIPC + SARS + CSD + COIDA + permits)</span><span class="price-amount">R6 000</span></div>
+
+    <div class="section-label">Fleet & Operator Compliance</div>
+    <div class="price-row"><span class="price-name">Fleet compliance documentation pack</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Driver / operator file setup</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">Operator card application</span><span class="price-amount">R650</span></div>
+  </div>
+
+  <!-- FOOD & BEVERAGE -->
+  <div class="tab-panel" id="panel-food">
+    <div class="section-label">Registrations & Permits</div>
+    <div class="price-row"><span class="price-name">Certificate of Acceptability (CoA)</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">DAFF / DALRRD food export registration</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">FSSC 22000 / ISO 22000 preparation</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">HACCP plan compilation</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Food premises licence application</span><span class="price-amount">R1 200</span></div>
+    <div class="price-row"><span class="price-name">Liquor licence application</span><span class="price-amount quote">Quote</span></div>
+
+    <div class="section-label">Compliance Documents</div>
+    <div class="price-row"><span class="price-name">Food safety management file</span><span class="price-amount">R2 000</span></div>
+    <div class="price-row"><span class="price-name">Pest control compliance record setup</span><span class="price-amount">R750</span></div>
+    <div class="price-row"><span class="price-name">Food handling OHS file</span><span class="price-amount">R1 800</span></div>
+    <div class="price-row"><span class="price-name">Staff food handling training referral</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- ENVIRONMENT -->
+  <div class="tab-panel" id="panel-environment">
+    <div class="section-label">Registrations & Authorisations</div>
+    <div class="price-row"><span class="price-name">Environmental Impact Assessment (EIA) facilitation</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Basic Assessment Report support</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Water use licence (NEMA / NWA)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Air emission licence facilitation</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">ISO 14001 environmental management preparation</span><span class="price-amount quote">Quote</span></div>
+
+    <div class="section-label">Compliance Documents</div>
+    <div class="price-row"><span class="price-name">Environmental management plan (EMP)</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Environmental compliance audit report</span><span class="price-amount quote">Quote</span></div>
+    <div class="price-row"><span class="price-name">Carbon footprint report</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+  <!-- BID DOCUMENTS -->
+  <div class="tab-panel" id="panel-bid">
+    <div class="section-label">Bid Documents</div>
+    <div class="price-row"><span class="price-name">SANRAL bid documents</span><span class="price-amount">R3 500</span></div>
+    <div class="price-row"><span class="price-name">TRANSNET bid documents</span><span class="price-amount">R4 000</span></div>
+    <div class="price-row"><span class="price-name">ESKOM bid documents</span><span class="price-amount">R4 500</span></div>
+    <div class="price-row"><span class="price-name">State-Owned Entities (SOEs)</span><span class="price-amount">R3 500</span></div>
+    <div class="price-row"><span class="price-name">District & Municipalities</span><span class="price-amount">R3 500</span></div>
+    <div class="price-row"><span class="price-name">Private companies</span><span class="price-amount">R3 000</span></div>
+    <div class="price-row"><span class="price-name">Document review only</span><span class="price-amount">R1 500</span></div>
+    <div class="price-row"><span class="price-name">Construction Management pack (Programme of works, method statement, OHS plan, risk management plan, quality assurance plan & cash-flow)</span><span class="price-amount quote">Quote</span></div>
+  </div>
+
+</div>
+
+<script>
+  const panels = {
+    cipc: 'panel-cipc', sars: 'panel-sars', csd: 'panel-csd',
+    coida: 'panel-coida', cidb: 'panel-cidb', bbbee: 'panel-bbbee',
+    nhbrc: 'panel-nhbrc', psira: 'panel-psira', ncca: 'panel-ncca',
+    ohs: 'panel-ohs', waste: 'panel-waste', logistics: 'panel-logistics',
+    food: 'panel-food', environment: 'panel-environment', bid: 'panel-bid'
+  };
+
+  function showTab(key, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(panels[key]).classList.add('active');
+    btn.classList.add('active');
+    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+</script>
+</body>
+</html>
 
     </section>
   </div>
