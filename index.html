@@ -1404,7 +1404,6 @@ function goFS2(){
   if(!q1val) return;
   document.getElementById('fs1').classList.remove('active');
   document.getElementById('fs2').classList.add('active');
-  // ... rest stays the same
   var html = '';
   d.opts.forEach(function(o){
     html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.text+'</span></div>';
