@@ -841,8 +841,8 @@
         <div class="simple-row"><span style="font-weight:800">RFQ/Company starter package</span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price" style="color:var(--black);font-weight:800;font-size:16px">R875</span><button class="simple-row-add" onclick="addToQuote('RFQ/Company starter package','R875',this)">Add</button></span></div>
         <div class="simple-row" style="padding-left:16px;font-size:13px;color:var(--muted)"><span><strong>Includes: CIPC CK doc, SARS cert, B-BBEE cert, CSD report, business account, quote template</strong></span><span></span></div>
         <div class="simple-row"><span><strong>RFQ compilation &amp; sending</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R750</span><button class="simple-row-add" onclick="addToQuote('RFQ compilation & sending','R750',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Tender document compiling &amp; sending</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">Quote (W5)</span><button class="simple-row-add" onclick="addToQuote('Tender document compiling & sending','Quote',this)">Add</button></span></div>
-        <div class="simple-row"><span><strong>Briefing attendance</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R250</span><button class="simple-row-add" onclick="addToQuote('Briefing attendance','R250',this)">Add</button></span></div>
+        <div class="simple-row"><span><strong>Tender document compiling &amp; sending</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">Quote </span><button class="simple-row-add" onclick="addToQuote('Tender document compiling & sending','Quote',this)">Add</button></span></div>
+        <div class="simple-row"><span><strong>Briefing attendance</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">Quote</span><button class="simple-row-add" onclick="addToQuote('Briefing attendance','R250',this)">Add</button></span></div>
         <div class="simple-row"><span><strong>CIDB registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R950</span><button class="simple-row-add" onclick="addToQuote('CIDB registration','R950',this)">Add</button></span></div>
         <div class="simple-row"><span><strong>NCCA registration</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R2 750</span><button class="simple-row-add" onclick="addToQuote('NCCA registration','R2 750',this)">Add</button></span></div>
         <div class="simple-row"><span><strong>Public liability insurance</strong></span><span style="display:flex;align-items:center;gap:8px"><span class="simple-price">R1 325</span><button class="simple-row-add" onclick="addToQuote('Public liability insurance','R1 325',this)">Add</button></span></div>
@@ -943,10 +943,10 @@
       </div>
       <div class="pricing-grid">
         <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Website — Basic','R1 500',this)">Add</button>
+          <button class="price-card-add" onclick="addToQuote('Website — Basic',this)">Add</button>
           <div class="price-name">Website — Basic</div>
-          <div class="price-amount">R1 500</div>
-          <div class="price-note">+ R370/mo hosting &amp; maintenance</div>
+          <div class="price-amount">Quote</div>
+          <div class="price-note">hosting &amp; maintenance</div>
           <ul class="price-features">
             <li>5 pages + free domain &amp; email</li>
             <li>20GB storage, Google listing</li>
@@ -955,10 +955,10 @@
           </ul>
         </div>
         <div class="price-card featured">
-          <button class="price-card-add" onclick="addToQuote('Website — Advanced','R2 750',this)">Add</button>
+          <button class="price-card-add" onclick="addToQuote('Website — Advanced',this)">Add</button>
           <div class="price-name">Website — Advanced</div>
-          <div class="price-amount">R2 750</div>
-          <div class="price-note">+ R370/mo hosting &amp; maintenance</div>
+          <div class="price-amount">Quote</div>
+          <div class="price-note">hosting &amp; maintenance</div>
           <ul class="price-features">
             <li>8 pages + free domain &amp; email</li>
             <li>SSL certificate + advanced CDN</li>
@@ -967,10 +967,10 @@
           </ul>
         </div>
         <div class="price-card">
-          <button class="price-card-add" onclick="addToQuote('Website — Premium','R3 500',this)">Add</button>
+          <button class="price-card-add" onclick="addToQuote('Website — Premium',this)">Add</button>
           <div class="price-name">Website — Premium</div>
-          <div class="price-amount">R3 500</div>
-          <div class="price-note">+ R370/mo hosting &amp; maintenance</div>
+          <div class="price-amount">Quote</div>
+          <div class="price-note">hosting &amp; maintenance</div>
           <ul class="price-features">
             <li>15+ pages + free domain &amp; email</li>
             <li>Advanced SEO + support</li>
@@ -1382,12 +1382,12 @@ var results = {
   csd:{pill:'Pillar 1 · Compliance',title:'CSD registration',desc:'Central Supplier Database — mandatory for all government suppliers. We register and maintain yours.',services:[{n:'New CSD registration',p:'R450'},{n:'CSD edit — commodities',p:'R350'}]},
   coida:{pill:'Pillar 1 · Labour compliance',title:'COIDA & labour compliance',desc:'COIDA is compulsory for any employer. We register your company and file annual returns.',services:[{n:'COIDA new registration',p:'R2 550'},{n:'COIDA annual return filing',p:'R450'}]},
   docs:{pill:'Pillar 4 · Business documents',title:'Company profile & business plan',desc:'Professional documents for tender packs, funding applications, and client meetings.',services:[{n:'Company profile — Basic',p:'R1 050'},{n:'Company profile — Standard',p:'R1 725'},{n:'Company profile — Premium',p:'R2 250'},{n:'Business plan — Basic',p:'R1 800'},{n:'Business plan — Funding ready',p:'R3 850'}]},
-  tender:{pill:'Pillar 2 · Win tenders',title:'Tender & RFQ support',desc:'We find, compile, and submit tenders and RFQs for your business — from first quote to full submission.',services:[{n:'RFQ starter pack (all docs)',p:'R875'},{n:'RFQ compilation & sending',p:'R750'},{n:'Tender document compiling',p:'W5 (quote)'},{n:'Briefing attendance',p:'R250'}]},
-  payroll:{pill:'Pillar 3 · Payroll',title:'Monthly payroll & payslips',desc:'We run your payroll on Sage — legally, on time, with UIF, SDL and PAYE filed every month.',services:[{n:'Digital jumpstart setup',p:'R1 800–R5 500'},{n:'Payslip generation (per slip)',p:'R180–R250'},{n:'UIF / SDL / PAYE filing',p:'Included'},{n:'Leave tracking',p:'Included'}]},
+  tender:{pill:'Pillar 2 · Win tenders',title:'Tender & RFQ support',desc:'We find, compile, and submit tenders and RFQs for your business — from first quote to full submission.',services:[{n:'RFQ starter pack (all docs)',p:'R875'},{n:'RFQ compilation & sending',p:'R750'},{n:'Tender document compiling',p:'Quote'},{n:'Briefing attendance',p:'Quote'}]},
+  payroll:{pill:'Pillar 3 · Payroll',title:'Monthly payroll & payslips',desc:'We run your payroll on Sage — legally, on time, with UIF, SDL and PAYE filed every month.',services:[{n:'Digital jumpstart setup',p:'Quote'},{n:'Payslip generation (per slip)',p:'Quote'},{n:'UIF / SDL / PAYE filing',p:'Included'},{n:'Leave tracking',p:'Included'}]},
   admin:{pill:'Pillar 4 · Remote admin',title:'Remote admin support',desc:'We organise your business, set up your document system, and handle ongoing back-office tasks.',services:[{n:'Free consultation first',p:''},{n:'Document organisation & filing',p:'Custom'},{n:'Invoice & quote templates',p:'Included'},{n:'Compliance folder setup',p:'Included'},{n:'Ongoing monthly support',p:'Custom quote'}]},
   plan:{pill:'Pillar 4 · Business documents',title:'Business plan & projections',desc:'Investor-ready or funding-ready business plans with detailed financial models.',services:[{n:'Business plan — Basic',p:'R2 800'},{n:'Business plan — Standard',p:'R3 600'},{n:'Business plan — Premium',p:'R4 500'},{n:'Business plan — Funding ready',p:'R5 850'}]},
   logo:{pill:'Pillar 5 · Brand',title:'Logo & brand identity',desc:'A professional logo with mockup — see it on business cards, shirts, and signage before it prints.',services:[{n:'Logo with mockup',p:'R400'},{n:'Business card',p:'R200'},{n:'Letterhead',p:'R275'},{n:'Email signature',p:'R150'}]},
-  website:{pill:'Pillar 5 · Digital presence',title:'Website design + hosting',desc:'Professional website with free domain and company email included.',services:[{n:'Basic — 5 pages',p:'R1 500'},{n:'Advanced — 8 pages',p:'R2 750'},{n:'Premium — 15+ pages',p:'R3 500'},{n:'Monthly hosting + maintenance',p:'R370/mo'}]},
+  website:{pill:'Pillar 5 · Digital presence',title:'Website design + hosting',desc:'Professional website with free domain and company email included.',services:[{n:'Basic — 5 pages',p:'Quote'},{n:'Advanced — 8 pages',p:'Quote'},{n:'Premium — 15+ pages',p:'Quote'},{n:'Monthly hosting + maintenance',p:'Quote'},{n:'Re-coding, Rebranding and Maintenance',p:'Quote'}]},
   print:{pill:'Pillar 5 · Printing',title:'Branded printing & signage',desc:'Uniforms, banners, gazebos, mugs, and signage — all branded and delivered.',services:[{n:'Sublimation printing',p:'Quote'},{n:'Gazebos & banners',p:'Quote'},{n:'Caps & t-shirts / embroidery',p:'Quote'},{n:'Signboards & 3D signage',p:'Quote'}]},
   social:{pill:'Pillar 5 · Digital',title:'Social media design',desc:'Branded posts, flyers, and marketing content that looks consistent and professional.',services:[{n:'Social media post design',p:'R200'},{n:'Flyer / poster',p:'R300'},{n:'Quote / invoice template',p:'R180'}]}
 };
@@ -1400,11 +1400,11 @@ function pickQ1(el, val){
 }
 
 function goFS2(){
+  document.getElementById('fresult').style.display = 'none'; // add this
   if(!q1val) return;
   document.getElementById('fs1').classList.remove('active');
   document.getElementById('fs2').classList.add('active');
-  var d = q2data[q1val];
-  document.getElementById('fq2').textContent = d.q;
+  // ... rest stays the same
   var html = '';
   d.opts.forEach(function(o){
     html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.text+'</span></div>';
