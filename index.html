@@ -833,8 +833,8 @@
           <span style="border:1px solid #333; border-radius:20px; padding:4px 12px; font-size:13px; color:#aaa;">Payslip guidance</span>
           <span style="border:1px solid #333; border-radius:20px; padding:4px 12px; font-size:13px; color:#aaa;">Monthly check-ins</span>
         </div>
-         <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
-         <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback</button>
+         <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA('Admin Support')">Book a free consultation</button>
+         <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback('Admin Support')">Request a callback</button>
       </div>
 
       <!-- Card 2 -->
@@ -859,8 +859,8 @@
           <span style="border:1px solid rgba(0,0,0,0.2); border-radius:20px; padding:4px 12px; font-size:13px;">Zoho WorkDrive</span>
           <span style="border:1px solid rgba(0,0,0,0.2); border-radius:20px; padding:4px 12px; font-size:13px;">Staff training</span>
         </div>
-        <button class="btn-primary" style="width:100%; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
-        <button style="width:100%; background:transparent; border:1.5px solid rgba(0,0,0,0.3); border-radius:8px; padding:14px; font-size:15px; font-weight:600; cursor:pointer;" onclick="requestCallback()">Request a callback</button>
+        <button class="btn-primary" style="width:100%; margin-bottom:12px;" onclick="openWA('Business Consulting')">Book a free consultation</button>
+        <button style="width:100%; background:transparent; border:1.5px solid rgba(0,0,0,0.3); border-radius:8px; padding:14px; font-size:15px; font-weight:600; cursor:pointer;" onclick="requestCallback('Business Consulting')">Request a callback</button>
       </div>
 
       <!-- Card 3 -->
@@ -890,8 +890,8 @@
     <span style="border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:4px 12px; font-size:13px; color:rgba(255,255,255,0.8);">Compliance folder</span>
   </div>
 
-  <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
-  <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback</button>
+  <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA('Monthly Payroll')">Book a free consultation</button>
+  <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback('Monthly Payroll')">Request a callback</button>
       
 </div>
       
@@ -1455,8 +1455,9 @@ function toggleMenu(){
 }
 
 // ── WhatsApp ──
-function openWA(){
-  window.open('https://wa.me/27632238772?text=Hi%20Workfloor%2C%20I%20found%20you%20on%20your%20website%20and%20I%27d%20like%20to%20find%20out%20more.','_blank');
+function openWA(service){
+  var msg = 'Hi Workfloor, I found you on your website and I\'d like to find out more' + (service ? ' about ' + service : '') + '.';
+  window.open('https://wa.me/27632238772?text='+encodeURIComponent(msg),'_blank');
 }
 
 // ── Page tab system ──
