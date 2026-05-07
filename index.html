@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="description" content="Workfloor helps South African SMMEs register businesses, apply for tenders, manage payroll, and handle admin — all in one place.">
 <meta name="keywords" content="CIPC registration, tender support, RFQ, payroll South Africa, SMME support, business registration, CSD, B-BBEE, SARS">
 <meta property="og:title" content="Workfloor — SMME Business Support">
@@ -552,15 +552,66 @@
   }
 
   /* ── Mobile ── */
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
+    /* Prevent horizontal scroll */
+    html, body { overflow-x: hidden; max-width: 100%; }
+
+    /* Container */
+    .container { padding: 0 18px; }
+
+    /* Nav */
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .nav-mobile-btn { display: block; }
-    .hero { padding: 48px 0 56px; }
-    .section { padding: 48px 0; }
-    .finder-box { padding: 20px; }
-    .finder-q { font-size: 17px; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
+
+    /* Hero */
+    .hero { padding: 36px 0 40px; }
+    .hero h1 { font-size: 32px; letter-spacing: -1px; }
+    .hero-sub { font-size: 15px; }
+    .hero-actions { gap: 8px; }
+    .btn-primary, .btn-outline, .btn-wa { padding: 12px 20px; font-size: 14px; }
+
+    /* Trust bar - stack on mobile */
+    .trust-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* Sections */
+    .section { padding: 40px 0; }
+    .section-sm { padding: 28px 0; }
+
+    /* Finder */
+    .finder-box { padding: 18px; }
+    .finder-q { font-size: 16px; }
+    .finder-opts { grid-template-columns: 1fr; gap: 8px; }
+
+    /* Service cards - single column */
+    .pillars-grid { grid-template-columns: 1fr; }
+
+    /* Pricing tabs - scrollable */
+    .pricing-tabs { flex-wrap: nowrap !important; overflow-x: auto !important; padding-bottom: 8px !important; -webkit-overflow-scrolling: touch; }
+    .tab-btn { flex-shrink: 0; font-size: 12px; padding: 6px 12px; }
+
+    /* Tab panels */
+    .tab-panel { overflow-x: hidden; }
+    .price-row { gap: 8px; }
+    .price-name { font-size: 13px; }
+    .price-amount { font-size: 13px; }
+
+    /* Footer */
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+    /* Quote bar */
+    #quote-bar { padding: 10px 16px; }
+    .quote-bar-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .quote-bar-actions { width: 100%; justify-content: space-between; }
+
+    /* CTA strip */
+    .cta-strip { padding: 40px 0; }
+    .cta-strip h2 { font-size: 26px; }
+
+    /* Section titles */
+    .section-title { font-size: 26px; }
   }
 </style>
 </head>
@@ -683,7 +734,7 @@
     <div class="section-label">The corporate side</div>
     <h2 class="section-title">Run your business <span style="color:var(--yellow)">like a pro.</span></h2>
     <p class="section-sub">Services that go deeper — tailored, hands-on, and built around how your business actually works.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin-top:40px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:24px; margin-top:40px;">
 
       <!-- Card 1 -->
       <div style="background:#1a1a1a; border-radius:16px; padding:36px; color:var(--white);">
