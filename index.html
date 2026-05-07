@@ -380,6 +380,28 @@
   }
   .simple-row-add:hover { background: var(--yellow-dark); }
   .simple-row-add.added { background: #2a5c2a; color: #7ef07e; opacity: 1; }
+  .tab-btn {
+  background: var(--gray); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 8px 18px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.tab-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.price-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; gap: 16px;
+}
+.price-row:last-child { border-bottom: none; }
+.price-name { font-weight: 600; color: var(--black); flex: 1; }
+.price-amount { font-weight: 700; color: var(--black); white-space: nowrap; font-size: 14px; }
+.price-amount.quote { color: var(--muted); font-style: italic; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+  padding: 20px 0 8px; border-bottom: 2px solid var(--black); margin-bottom: 4px;
+}
 
   /* ── Content / Education ── */
   .content-section { background: var(--black); padding: 72px 0; }
@@ -803,7 +825,23 @@
       <p>No hidden fees. No surprises. All prices include our service fee.</p>
     </div>
     <section class="section" style="padding-top:24px">
-    <div class="pricing-tabs">
+    <div class="pricing-tabs" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; overflow-x:auto; padding-bottom:4px;">
+  <button class="tab-btn active" onclick="showTab('cipc',this)">CIPC</button>
+  <button class="tab-btn" onclick="showTab('sars',this)">SARS</button>
+  <button class="tab-btn" onclick="showTab('csd',this)">CSD</button>
+  <button class="tab-btn" onclick="showTab('coida',this)">COIDA & UIF</button>
+  <button class="tab-btn" onclick="showTab('cidb',this)">CIDB</button>
+  <button class="tab-btn" onclick="showTab('bbbee',this)">B-BBEE</button>
+  <button class="tab-btn" onclick="showTab('nhbrc',this)">NHBRC</button>
+  <button class="tab-btn" onclick="showTab('psira',this)">PSIRA</button>
+  <button class="tab-btn" onclick="showTab('ncca',this)">NCCA</button>
+  <button class="tab-btn" onclick="showTab('ohs',this)">Health & Safety</button>
+  <button class="tab-btn" onclick="showTab('waste',this)">Waste</button>
+  <button class="tab-btn" onclick="showTab('logistics',this)">Logistics</button>
+  <button class="tab-btn" onclick="showTab('food',this)">Food & Bev</button>
+  <button class="tab-btn" onclick="showTab('environment',this)">Environment</button>
+  <button class="tab-btn" onclick="showTab('bid',this)">Bid Documents</button>
+</div>
         <!-- CIPC -->
   <div class="tab-panel active" id="panel-cipc">
     <div class="section-label">Company Registration</div>
@@ -1109,10 +1147,6 @@
     btn.classList.add('active');
     btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
-</script>
-</body>
-</html>
-
     </section>
   </div>
 </div><!-- /view-pricing -->
