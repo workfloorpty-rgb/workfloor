@@ -1541,7 +1541,8 @@ function goFS2(){
   document.getElementById('fq2').textContent = d.q;
   var html = '';
   d.opts.forEach(function(o){
-     html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.text+'</span></div>';
+    html += '<div class="finder-opt" onclick="pickQ2(this,\''+o.val+'\')"><span class="finder-opt-icon">'+o.icon+'</span><span class="finder-opt-text">'+o.text+'</span></div>';
+  });
   document.getElementById('fopts2').innerHTML = html;
   q2val = '';
 }
