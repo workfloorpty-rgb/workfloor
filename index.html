@@ -576,7 +576,7 @@
       </a>
       <div class="nav-links">
         <a href="#services" onclick="showHomepage(); setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),50)">Home</a>
-        <a href="#" onclick="showTab('pricing'); return false;">Pricing</a>
+        <a href="#" onclick="showTab('pricing'); return false;" id="nav-pricing">Pricing</a>
         <a href="#" onclick="showTab('learn'); return false;">Learn</a>
         <a href="#" onclick="showTab('contact'); return false;">Contact</a>
       </div>
@@ -602,7 +602,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-eyebrow"><span></span>SMME support · Nationwide</div>
-      <h1>We help South African businesses<br><em>START</em>, <em>COMPLY</em>, and <em>GROW</em>
+      <h1>We help South African businesses<br><em>START</em>, <em>COMPLY</em>, and <em>GROW</em></h1>
     <p class="hero-sub">From your first company registration to government tenders, payroll, and a clean back office — Workfloor handles what slows you down.</p>
     <div class="hero-actions">
        <button class="btn-primary" onclick="document.getElementById('finder-section').scrollIntoView({behavior:'smooth'})">Find what you need →</button>
@@ -708,7 +708,7 @@
           <span style="border:1px solid #333; border-radius:20px; padding:4px 12px; font-size:13px; color:#aaa;">Monthly check-ins</span>
         </div>
          <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
-         <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback
+         <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback</button>
       </div>
 
       <!-- Card 2 -->
@@ -765,7 +765,7 @@
   </div>
 
   <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA()">Book a free consultation</button>
-  <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback
+  <button class="btn-outline" style="width:100%; color:#ffffff; border-color:#ffffff;" onclick="requestCallback()">Request a callback</button>
       
 </div>
       
@@ -826,21 +826,21 @@
     </div>
     <section class="section" style="padding-top:24px">
     <div class="pricing-tabs" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; overflow-x:auto; padding-bottom:4px;">
-  <button class="tab-btn active" onclick="showTab('cipc',this)">CIPC</button>
-  <button class="tab-btn" onclick="showTab('sars',this)">SARS</button>
-  <button class="tab-btn" onclick="showTab('csd',this)">CSD</button>
-  <button class="tab-btn" onclick="showTab('coida',this)">COIDA & UIF</button>
-  <button class="tab-btn" onclick="showTab('cidb',this)">CIDB</button>
-  <button class="tab-btn" onclick="showTab('bbbee',this)">B-BBEE</button>
-  <button class="tab-btn" onclick="showTab('nhbrc',this)">NHBRC</button>
-  <button class="tab-btn" onclick="showTab('psira',this)">PSIRA</button>
-  <button class="tab-btn" onclick="showTab('ncca',this)">NCCA</button>
-  <button class="tab-btn" onclick="showTab('ohs',this)">Health & Safety</button>
-  <button class="tab-btn" onclick="showTab('waste',this)">Waste</button>
-  <button class="tab-btn" onclick="showTab('logistics',this)">Logistics</button>
-  <button class="tab-btn" onclick="showTab('food',this)">Food & Bev</button>
-  <button class="tab-btn" onclick="showTab('environment',this)">Environment</button>
-  <button class="tab-btn" onclick="showTab('bid',this)">Bid Documents</button>
+  <button class="tab-btn active" onclick="showPricingTab('cipc',this)">CIPC</button>
+  <button class="tab-btn" onclick="showPricingTab('sars',this)">SARS</button>
+  <button class="tab-btn" onclick="showPricingTab('csd',this)">CSD</button>
+  <button class="tab-btn" onclick="showPricingTab('coida',this)">COIDA & UIF</button>
+  <button class="tab-btn" onclick="showPricingTab('cidb',this)">CIDB</button>
+  <button class="tab-btn" onclick="showPricingTab('bbbee',this)">B-BBEE</button>
+  <button class="tab-btn" onclick="showPricingTab('nhbrc',this)">NHBRC</button>
+  <button class="tab-btn" onclick="showPricingTab('psira',this)">PSIRA</button>
+  <button class="tab-btn" onclick="showPricingTab('ncca',this)">NCCA</button>
+  <button class="tab-btn" onclick="showPricingTab('ohs',this)">Health & Safety</button>
+  <button class="tab-btn" onclick="showPricingTab('waste',this)">Waste</button>
+  <button class="tab-btn" onclick="showPricingTab('logistics',this)">Logistics</button>
+  <button class="tab-btn" onclick="showPricingTab('food',this)">Food & Bev</button>
+  <button class="tab-btn" onclick="showPricingTab('environment',this)">Environment</button>
+  <button class="tab-btn" onclick="showPricingTab('bid',this)">Bid Documents</button>
 </div>
         <!-- CIPC -->
   <div class="tab-panel active" id="panel-cipc">
@@ -1328,6 +1328,15 @@ function showTab(tab){
   var el = document.getElementById('view-'+tab);
   if(el){ el.style.display='block'; }
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── Pricing tab switcher (used by pricing page tab buttons) ──
+function showPricingTab(id, btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.tab-btn').forEach(function(t){t.classList.remove('active')});
+  var panel = document.getElementById('panel-'+id);
+  if(panel) panel.classList.add('active');
+  if(btn) btn.classList.add('active');
 }
 
 // ── Pricing tabs ──
