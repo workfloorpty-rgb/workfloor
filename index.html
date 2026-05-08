@@ -1634,17 +1634,17 @@ function sendQuoteByEmail(){
   if(quoteItems.length === 0){ alert('Please add services to your quote first.'); return; }
 
   // Full name: minimum 2 words
-  if(!name || name.trim().split(/\s+/).length < 2){
-    alert('Please enter your full name (at least first and last name).'); return;
-  }
-  // Email: must contain @ and a dot after @
+ var FILLER = ['john doe','jane doe','john smith','jane smith','test','test user','asdf','admin','user'];
+  var nameParts = name.trim().split(/\s+/).filter(Boolean);
+  if(nameParts.length < 2){ alert('Please enter your first and last name.'); return; }
+  if(nameParts.some(function(p){ return p.length < 2; })){ alert('Each part of your name must be at least 2 characters.'); return; }
+  if(FILLER.indexOf(name.trim().toLowerCase()) !== -1){ alert('Please enter your real name.'); return; }
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     alert('Please enter a valid email address (e.g. you@example.com).'); return;
   }
-  // Phone: digits only, minimum 10
   var digitsOnly = phone.replace(/\D/g,'');
-  if(digitsOnly.length < 10){
-    alert('Please enter a valid contact number (at least 10 digits).'); return;
+  if(digitsOnly.length !== 10){ alert('Phone number must be exactly 10 digits.'); return; }
+  if(digitsOnly.charAt(0) !== '0'){ alert('Phone number must start with 0 (e.g. 0821234567).'); return; }
   }
 
   var total = quoteItems.reduce(function(sum, item){
@@ -1707,18 +1707,16 @@ function sendQReqEmail(){
   var phone = document.getElementById('qreq-phone').value.trim();
 
   // Full name: minimum 2 words
-  if(!name || name.trim().split(/\s+/).length < 2){
-    alert('Please enter your full name (at least first and last name).'); return;
-  }
-  // Email: must be a valid format
+  var FILLER = ['john doe','jane doe','john smith','jane smith','test','test user','asdf','admin','user'];
+  var nameParts = name.trim().split(/\s+/).filter(Boolean);
+  if(nameParts.length < 2){ alert('Please enter your first and last name.'); return; }
+  if(FILLER.indexOf(name.trim().toLowerCase()) !== -1){ alert('Please enter your real name.'); return; }
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     alert('Please enter a valid email address (e.g. you@example.com).'); return;
   }
-  // Phone: minimum 10 digits
   var digitsOnly = phone.replace(/\D/g,'');
-  if(digitsOnly.length < 10){
-    alert('Please enter a valid contact number (at least 10 digits).'); return;
-  }
+  if(digitsOnly.length !== 10){ alert('Phone number must be exactly 10 digits.'); return; }
+  if(digitsOnly.charAt(0) !== '0'){ alert('Phone number must start with 0 (e.g. 0821234567).'); return; }
 
   var subject = 'Quote Request — ' + qreqServiceName;
   var body = 'Hi Workfloor,\n\nI would like to request a quote for the following service:\n\n'
@@ -1734,7 +1732,13 @@ function sendQReqEmail(){
 function sendQuoteByWA(){
   var name = document.getElementById('qm-name').value.trim();
   var phone = document.getElementById('qm-phone').value.trim();
-  if(quoteItems.length === 0){ alert('Please add services to your quote first.'); return; }
+  var FILLER = ['john doe','jane doe','john smith','jane smith','test','test user','asdf','admin','user'];
+  var nameParts = name.trim().split(/\s+/).filter(Boolean);
+  if(nameParts.length < 2){ alert('Please enter your first and last name.'); return; }
+  if(FILLER.indexOf(name.trim().toLowerCase()) !== -1){ alert('Please enter your real name.'); return; }
+  var digitsOnly = phone.replace(/\D/g,'');
+  if(digitsOnly.length !== 10){ alert('Phone number must be exactly 10 digits.'); return; }
+  if(digitsOnly.charAt(0) !== '0'){ alert('Phone number must start with 0 (e.g. 0821234567).'); return; }
   var msg = 'Hi Workfloor, I would like to request these services:\n\n';
   quoteItems.forEach(function(item){ msg += '• ' + item.name + ' (' + item.price + ')\n'; });
   if(name) msg += '\nName: ' + name;
@@ -1855,10 +1859,13 @@ function renderUserReviews(){
       + '<p class="proof-text">"' + r.text.replace(/</g,'&lt;') + '"</p>'
       + '<div class="proof-name">' + r.displayName + '</div>'
       + (meta ? '<div class="proof-meta">' + meta.replace(/</g,'&lt;') + '</div>' : '')
+      + + '<button onclick="editReview(' + idx + ')" title="Edit review" '
+      + 'style="position:absolute;top:10px;right:36px;background:none;border:none;color:#ccc;font-size:13px;cursor:pointer;opacity:0.4;transition:opacity 0.2s;font-weight:700;" '
+      + 'onmouseenter="this.style.opacity=\'1\'" onmouseleave="this.style.opacity=\'0.4\'">✎</button>'
       + '<button onclick="confirmDeleteReview(' + idx + ')" title="Delete review" '
       + 'style="position:absolute;top:10px;right:10px;background:none;border:none;color:#ccc;font-size:16px;cursor:pointer;opacity:0.4;transition:opacity 0.2s;" '
       + 'onmouseenter="this.style.opacity=\'1\'" onmouseleave="this.style.opacity=\'0.4\'">✕</button>';
-    track.appendChild(card);
+     track.appendChild(card);
   });
 }
 
@@ -1889,14 +1896,14 @@ function submitReview(){
   }
 
   var reviews = loadReviews();
-  reviews.push({
-    displayName: formatName(name),
-    stars: reviewStars,
-    half: reviewHalf,
-    text: text,
-    business: business,
-    province: province
-  });
+  var editIdx = document.getElementById('review-modal-overlay').getAttribute('data-edit-idx');
+  var entry = { rawName: name, displayName: formatName(name), stars: reviewStars, half: reviewHalf, text: text, business: business, province: province };
+  if(editIdx !== null && editIdx !== ''){
+    reviews[parseInt(editIdx)] = entry;
+    document.getElementById('review-modal-overlay').removeAttribute('data-edit-idx');
+  } else {
+    reviews.push(entry);
+  }
   saveReviews(reviews);
   renderUserReviews();
   closeReviewModal();
