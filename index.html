@@ -776,9 +776,9 @@
             <span class="finder-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
             <span class="finder-opt-text">I'm registered but my documents aren't sorted</span>
           </div>
-          <div class="finder-opt" onclick="pickQ1(this,'trading')">
-            <span class="finder-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-            <span class="finder-opt-text">I'm operating already — I need tenders, payroll, or admin help</span>
+          <div class="finder-opt" onclick="pickQ1(this,'funding')">
+            <span class="finder-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/><line x1="12" y1="22" x2="12" y2="12"/></svg></span>
+            <span class="finder-opt-text">I have documents I want to get funded</span>
           </div>
           <div class="finder-opt" onclick="pickQ1(this,'brand')">
             <span class="finder-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg></span>
@@ -971,10 +971,10 @@
       <p>We handle all registrations, certificates, and documents to get your business tender-ready — by industry.</p>
     </div>
     <section class="section" style="padding-top:24px">
-      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px; align-items:stretch;">
+      <div id="packages-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px; align-items:stretch;">
 
         <!-- 1. Government & Public Sector — R4,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
+        <div data-price="4500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#534AB7; background:#EEEDFE; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Government &amp; Public Sector</div>
@@ -1001,7 +1001,7 @@
         </div>
 
         <!-- 2. Consulting & Professional Services — R5,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
+        <div data-price="5500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#993556; background:#FBEAF0; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Consulting &amp; Professional Services</div>
@@ -1029,7 +1029,7 @@
         </div>
 
         <!-- 3. Landscaping — R6,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
+        <div data-price="6500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#085041; background:#C2EEE0; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Landscaping</div>
@@ -1059,7 +1059,7 @@
         </div>
 
         <!-- 4. Pest Control — R7,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
+        <div data-price="7500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#A32D2D; background:#FCEBEB; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Pest Control</div>
@@ -1088,7 +1088,7 @@
         </div>
 
         <!-- 5. Transport & Logistics — R9,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
+        <div data-price="9500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#0F6E56; background:#E1F5EE; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Transport &amp; Logistics</div>
@@ -1116,7 +1116,7 @@
         </div>
 
         <!-- 6. Food & Agriculture — R9,800 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white);">
+        <div data-price="9800" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#3B6D11; background:#EAF3DE; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Food &amp; Agriculture</div>
@@ -1142,7 +1142,7 @@
         </div>
 
         <!-- 7. Waste Management — R13,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white);">
+        <div data-price="13500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#27500A; background:#D8EDBE; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Waste Management</div>
@@ -1169,7 +1169,7 @@
         </div>
 
         <!-- 8. Construction & Infrastructure — R11,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white);">
+        <div data-price="11500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#185FA5; background:#E6F1FB; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Construction &amp; Infrastructure</div>
@@ -1196,7 +1196,7 @@
         </div>
 
         <!-- 9. Electricity — R10,000 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white);">
+        <div data-price="10000" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B8750A; background:#FEF3D7; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Electricity</div>
@@ -1223,7 +1223,7 @@
         </div>
 
         <!-- 10. Mining & Energy — R15,000 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white);">
+        <div data-price="15000" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#854F0B; background:#FAEEDA; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Mining &amp; Energy</div>
@@ -1249,7 +1249,7 @@
         </div>
 
         <!-- 11. Security — R14,500 -->
-        <div style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white);">
+        <div data-price="14500" style="border-radius:16px; border:1.5px solid var(--border); padding:28px; background:var(--white); display:flex; flex-direction:column;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div>
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#1C3A5E; background:#D9E8F7; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Security</div>
@@ -1334,7 +1334,7 @@
         <!-- CIPC -->
   <div class="tab-panel active" id="panel-cipc">
     <div class="section-label">Company Registration</div>
-    <div class="price-row"><span class="price-name">New PTY (Ltd) registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R550</span><button class="simple-row-add" onclick="addToQuote('New PTY (Ltd) registration','R550',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">New PTY (Ltd) registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R450</span><button class="simple-row-add" onclick="addToQuote('New PTY (Ltd) registration','R450',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">New NPC / NPO registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R750</span><button class="simple-row-add" onclick="addToQuote('New NPC / NPO registration','R750',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">External company registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R2 750</span><button class="simple-row-add" onclick="addToQuote('External company registration','R2 750',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">CC to PTY conversion</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R2 050</span><button class="simple-row-add" onclick="addToQuote('CC to PTY conversion','R2 050',this)">Add</button></span></div>
@@ -1345,10 +1345,10 @@
     <div class="price-row"><span class="price-name">Name reservation extension</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R250</span><button class="simple-row-add" onclick="addToQuote('Name reservation extension','R250',this)">Add</button></span></div>
 
     <div class="section-label">Director Amendments</div>
-    <div class="price-row"><span class="price-name">Add new director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 250</span><button class="simple-row-add" onclick="addToQuote('Add new director','R1 250',this)">Add</button></span></div> 
-    <div class="price-row"><span class="price-name">Remove / resign director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 550</span><button class="simple-row-add" onclick="addToQuote('Remove / resign director','R1 550',this)">Add</button></span></div>
-    <div class="price-row"><span class="price-name">Forceful removal of director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 550</span><button class="simple-row-add" onclick="addToQuote('Forceful removal of director','R1 550',this)">Add</button></span></div>
-    <div class="price-row"><span class="price-name">Update director personal details</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R550</span><button class="simple-row-add" onclick="addToQuote('Update director personal details','R550',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Add new director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R550</span><button class="simple-row-add" onclick="addToQuote('Add new director','R550',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Remove / resign director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R550</span><button class="simple-row-add" onclick="addToQuote('Remove / resign director','R550',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Forceful removal of director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R650</span><button class="simple-row-add" onclick="addToQuote('Forceful removal of director','R650',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Update director personal details</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R250</span><button class="simple-row-add" onclick="addToQuote('Update director personal details','R250',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Transfer of deceased director</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R2 750</span><button class="simple-row-add" onclick="addToQuote('Transfer of deceased director','R2 750',this)">Add</button></span></div>
 
     <div class="section-label">Address & MOI Amendments</div>
@@ -1375,12 +1375,12 @@
   <!-- SARS -->
   <div class="tab-panel" id="panel-sars">
     <div class="section-label">Tax Registration</div>
-    <div class="price-row"><span class="price-name">Register representative taxpayer</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 750</span><button class="simple-row-add" onclick="addToQuote('Register representative taxpayer','R1 750',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Register representative taxpayer</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R750</span><button class="simple-row-add" onclick="addToQuote('Register representative taxpayer','R750',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Tax PIN / eFiling setup</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R550</span><button class="simple-row-add" onclick="addToQuote('Tax PIN / eFiling setup','R550',this)">Add</button></span></div>
-    <div class="price-row"><span class="price-name">PAYE registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R800</span><button class="simple-row-add" onclick="addToQuote('PAYE registration','R850',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">PAYE registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R800</span><button class="simple-row-add" onclick="addToQuote('PAYE registration','R800',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">UIF registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 350</span><button class="simple-row-add" onclick="addToQuote('UIF registration','R1 350',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">SDL registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 150</span><button class="simple-row-add" onclick="addToQuote('SDL registration','R1 150',this)">Add</button></span></div>
-    <div class="price-row"><span class="price-name">VAT registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R3 550</span><button class="simple-row-add" onclick="addToQuote('VAT registration','R31 550',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">VAT registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R3 550</span><button class="simple-row-add" onclick="addToQuote('VAT registration','R3 550',this)">Add</button></span></div>
     
     <div class="section-label">Amendments & Updates</div>
     <div class="price-row"><span class="price-name">Update registered representative</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R450</span><button class="simple-row-add" onclick="addToQuote('Update registered representative','R450',this)">Add</button></span></div>
@@ -1406,7 +1406,7 @@
     <div class="price-row"><span class="price-name">CSD + CIPC + SARS combo package</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 450</span><button class="simple-row-add" onclick="addToQuote('CSD + CIPC + SARS combo package','R1 450',this)">Add</button></span></div>
 
     <div class="section-label">Profile Management</div>
-    <div class="price-row"><span class="price-name">Add / edit commodities</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R350</span><button class="simple-row-add" onclick="addToQuote('Add / edit commodities','R350',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">CSD edits</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R200</span><button class="simple-row-add" onclick="addToQuote('CSD edits','R200',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Update business address</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R300</span><button class="simple-row-add" onclick="addToQuote('Update business address','R300',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Add / update banking details</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R300</span><button class="simple-row-add" onclick="addToQuote('Add / update banking details','R300',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Reactivate deactivated profile</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R600</span><button class="simple-row-add" onclick="addToQuote('Reactivate deactivated profile','R600',this)">Add</button></span></div>
@@ -1421,8 +1421,8 @@
   <!-- COIDA & UIF -->
   <div class="tab-panel" id="panel-coida">
     <div class="section-label">COIDA</div>
-    <div class="price-row"><span class="price-name">New COIDA registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R5 550</span><button class="simple-row-add" onclick="addToQuote('New COIDA registration','R5 550',this)">Add</button></span></div>
-    <div class="price-row"><span class="price-name">Return of Earnings (ROE) submission</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 650</span><button class="simple-row-add" onclick="addToQuote('Return of Earnings (ROE) submission','R1 650',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">New COIDA registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R650</span><button class="simple-row-add" onclick="addToQuote('New COIDA registration','R650',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Return of Earnings (ROE) submission</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R450</span><button class="simple-row-add" onclick="addToQuote('Return of Earnings (ROE) submission','R450',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Letter of Good Standing (LOGS)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R850</span><button class="simple-row-add" onclick="addToQuote('Letter of Good Standing (LOGS)','R850',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">COIDA renewal (ROE + LOGS combo)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R3 100</span><button class="simple-row-add" onclick="addToQuote('COIDA renewal (ROE + LOGS combo)','R3 100',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Full COIDA package (registration + ROE + LOGS)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R6 950</span><button class="simple-row-add" onclick="addToQuote('Full COIDA package (registration + ROE + LOGS)','R6 950',this)">Add</button></span></div>
@@ -1449,7 +1449,7 @@
     <div class="price-row"><span class="price-name">Grade 7–9</span><span style="display:flex;align-items:center;gap:6px"><span class="price-amount quote">Request</span><button class="btn-quote-tag" onclick="openQReqModal('Grade 7–9')">Quote</button></span></div>
 
     <div class="section-label">Renewals & Upgrades</div>
-    <div class="price-row"><span class="price-name">Annual CIDB renewal (any grade)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 750</span><button class="simple-row-add" onclick="addToQuote('Annual CIDB renewal (any grade)','R750',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">Annual CIDB renewal (any grade)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 750</span><button class="simple-row-add" onclick="addToQuote('Annual CIDB renewal (any grade)','R1 750',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Grade upgrade application</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount quote">Request</span><button class="btn-quote-tag" onclick="openQReqModal('Grade upgrade application')">Quote</button></span></div>
     <div class="price-row"><span class="price-name">PE (Potentially Emerging) status application</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 550</span><button class="simple-row-add" onclick="addToQuote('PE (Potentially Emerging) status application','R1 550',this)">Add</button></span></div>
 
@@ -1462,8 +1462,8 @@
   <!-- B-BBEE -->
   <div class="tab-panel" id="panel-bbbee">
     <div class="section-label">B-BBEE Certificates & Affidavits</div>
-    <div class="price-row"><span class="price-name">B-BBEE sworn affidavit (EME)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R550</span><button class="simple-row-add" onclick="addToQuote('B-BBEE sworn affidavit (EME)','R550',this)">Add</button></span></div>
-    <div class="price-row"><span class="price-name">B-BBEE CIPC certificate</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R350</span><button class="simple-row-add" onclick="addToQuote('B-BBEE CIPC certificate','R350',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">B-BBEE sworn affidavit (EME)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R200</span><button class="simple-row-add" onclick="addToQuote('B-BBEE sworn affidavit (EME)','R200',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">B-BBEE CIPC certificate</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R150</span><button class="simple-row-add" onclick="addToQuote('B-BBEE CIPC certificate','R150',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">B-BBEE affidavit (QSE)</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R850</span><button class="simple-row-add" onclick="addToQuote('B-BBEE affidavit (QSE)','R850',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">B-BBEE profile update on CSD</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R200</span><button class="simple-row-add" onclick="addToQuote('B-BBEE profile update on CSD','R200',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">Formal B-BBEE verification / rating</span><span style="display:flex;align-items:center;gap:6px"><span class="price-amount quote">Request</span><button class="btn-quote-tag" onclick="openQReqModal('Formal B-BBEE verification / rating')">Quote</button></span></div>
@@ -1490,7 +1490,7 @@
   <!-- PSIRA -->
   <div class="tab-panel" id="panel-psira">
     <div class="section-label">PSIRA</div>
-    <div class="price-row"><span class="price-name">PSIRA security business registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R12 500</span><button class="simple-row-add" onclick="addToQuote('PSIRA security business registration','R12 500',this)">Add</button></span></div>
+    <div class="price-row"><span class="price-name">PSIRA security business registration</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R9 800</span><button class="simple-row-add" onclick="addToQuote('PSIRA security business registration','R9 800',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">PSIRA individual officer grading support</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R2 850</span><button class="simple-row-add" onclick="addToQuote('PSIRA individual officer grading support','R2 850',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">PSIRA annual renewal</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 200</span><button class="simple-row-add" onclick="addToQuote('PSIRA annual renewal','R1 200',this)">Add</button></span></div>
     <div class="price-row"><span class="price-name">PSIRA compliance documentation pack</span><span style="display:flex;align-items:center;gap:8px"><span class="price-amount">R1 950</span><button class="simple-row-add" onclick="addToQuote('PSIRA compliance documentation pack','R1 950',this)">Add</button></span></div>
@@ -1907,13 +1907,27 @@
     <h3>Your quote request</h3>
     <ul class="quote-modal-list" id="quote-modal-list"></ul>
     <div class="quote-modal-total" id="quote-modal-total"></div>
+    <!-- EFT details panel (hidden by default) -->
+    <div id="eft-details" style="display:none;background:#f7f7f5;border:1.5px solid #e4e4e0;border-radius:10px;padding:16px 18px;margin-bottom:16px;font-size:14px;font-weight:600;line-height:1.8;">
+      <div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#6b6b6b;margin-bottom:10px;">EFT / Direct Deposit Details</div>
+      <div><span style="color:#6b6b6b;font-weight:600;">Bank:</span> Capitec Business</div>
+      <div><span style="color:#6b6b6b;font-weight:600;">Account holder:</span> Workfloor (Pty) Ltd</div>
+      <div><span style="color:#6b6b6b;font-weight:600;">Account number:</span> 1053 1467 60</div>
+      <div><span style="color:#6b6b6b;font-weight:600;">Branch code:</span> 450105</div>
+      <div><span style="color:#6b6b6b;font-weight:600;">Account type:</span> Cheque</div>
+      <div style="margin-top:10px;font-size:13px;color:#6b6b6b;line-height:1.7;">
+        <strong>Reference:</strong> Your name + service (e.g. <em>Thabo CIPC</em>)<br>
+        After payment, WhatsApp your proof of payment to <strong>063 223 8772</strong>.
+      </div>
+    </div>
     <div class="quote-modal-form">
       <input type="text" placeholder="First &amp; last name (e.g. Thabo Mokoena)" id="qm-name">
       <input type="email" placeholder="Your real email address (e.g. thabo@business.co.za)" id="qm-email">
       <input type="tel" placeholder="WhatsApp / phone number (e.g. 0821234567)" id="qm-phone">
     </div>
     <div class="quote-modal-actions">
-      <button class="btn-primary" onclick="sendQuoteByEmail()">💳 Pay Now</button>
+      <button class="btn-primary" disabled style="opacity:0.45; cursor:not-allowed; background:#888; pointer-events:none;" title="Payment coming soon" /* paystack-ready: onclick=&quot;sendQuoteByEmail()&quot; */>💳 Pay Now</button>
+      <button class="btn-primary" style="background:#1a7a4a;padding:12px 20px;font-size:14px" onclick="showEFTDetails()">🏦 EFT / Direct</button>
       <button class="btn-wa" style="padding:12px 20px;font-size:14px" onclick="sendQuoteByWA()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.118 1.532 5.845L.057 23.926a.5.5 0 00.611.611l6.081-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.51-5.21-1.4l-.374-.22-3.87.938.938-3.87-.22-.374A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp
@@ -1940,6 +1954,12 @@
 </div>
 
 <script>
+// ── EFT details toggle ──
+function showEFTDetails(){
+  var panel = document.getElementById('eft-details');
+  if(panel) panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+}
+
 // ── Nav mobile ──
 function toggleMenu(){
   var m = document.getElementById('mobileMenu');
@@ -2039,7 +2059,12 @@ function updateQuoteBar(){
     bar.classList.remove('visible');
   } else {
     bar.classList.add('visible');
-    itemsEl.textContent = quoteItems.map(function(i){ return i.name; }).join(' · ');
+    itemsEl.innerHTML = quoteItems.map(function(i){
+      return '<span style="display:inline-flex;align-items:baseline;gap:6px;margin-right:14px;white-space:normal">'
+        + '<span style="color:#bbb">' + i.name + '</span>'
+        + '<span style="color:var(--yellow);font-weight:700;white-space:nowrap;flex-shrink:0">' + i.price + '</span>'
+        + '</span>';
+    }).join('');
   }
 }
 
@@ -2397,7 +2422,8 @@ var q2data = {
       {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>', text:'B-BBEE certificate', val:'bbee'},
       {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', text:'CSD registration', val:'csd'},
       {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', text:'COIDA / labour compliance', val:'coida'},
-      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>', text:'Company profile or business plan', val:'docs'}
+      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>', text:'Company profile or business plan', val:'docs'},
+      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>', text:'Company email', val:'email'}
     ]
   },
   trading: {
@@ -2417,17 +2443,26 @@ var q2data = {
       {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>', text:'Printing — shirts, banners, signage', val:'print'},
       {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>', text:'Social media or marketing design', val:'social'}
     ]
+  },
+  funding: {
+    q: 'What kind of funding document do you need?',
+    opts: [
+      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>', text:'Business plan (funding-ready)', val:'fundplan'},
+      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>', text:'Financial projections / model', val:'projections'},
+      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>', text:'Pitch deck / proposal', val:'pitch'},
+      {icon:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>', text:'Start-up funding application pack', val:'startup'}
+    ]
   }
 };
 
 var results = {
-  cipc:{pill:'Pillar 1 · Start your business',title:'Company registration',desc:'We register your company with CIPC and set up your SARS tax pin. You only need your ID.',services:[{n:'CIPC new company registration',p:'R450'},{n:'Re-register company',p:'R1750'},{n:'Remove/Add Director',p:'R350'},{n:'Change director details',p:'R450'},{n:'Deregister Company',p:'R800'}]},
-  sars:{pill:'Pillar 1 · Start your business',title:'SARS tax setup',desc:'Get your tax pin, eFiling profile, and representative registered correctly from day one.',services:[{n:'SARS register representative',p:'1250'},{n:'Requesting SARS Tax Pin only',p:'R350'},{n:'Create eFilling Account',p:'R450'},{n:'Income tax filing p.a.',p:'Quote'},{n:'Provisional tax p.a.',p:'Quote'}]},
+  cipc:{pill:'Pillar 1 · Start your business',title:'Company registration',desc:'We register your company with CIPC and set up your SARS tax pin. You only need your ID.',services:[{n:'CIPC new company registration',p:'R450'},{n:'Re-register company',p:'R1 750'},{n:'Add director',p:'R550'},{n:'Remove / resign director',p:'R550'},{n:'Forceful removal of director',p:'R650'},{n:'Change director details',p:'R250'},{n:'Deregister Company',p:'R800'}]},
+  sars:{pill:'Pillar 1 · Start your business',title:'SARS tax setup',desc:'Get your tax pin, eFiling profile, and representative registered correctly from day one.',services:[{n:'SARS register representative',p:'R750'},{n:'Requesting SARS Tax Pin only',p:'R350'},{n:'Create eFilling Account',p:'R450'},{n:'Income tax filing p.a.',p:'Quote'},{n:'Provisional tax p.a.',p:'Quote'}]},
   starter:{pill:'Pillar 1 + 2 · Full starter',title:'RFQ / Company starter pack',desc:'Everything you need to start quoting government — in 1 to 7 days. Just bring your ID.',services:[{n:'CIPC CK document',p:''},{n:'SARS tax certificate',p:''},{n:'B-BBEE certificate',p:''},{n:'CSD full report',p:''},{n:'Business bank account',p:''},{n:'Quote template',p:''},{n:'Full package',p:'R1275'}]},
   bank:{pill:'Pillar 1 · Start your business',title:'Business bank account',desc:'We assist you in opening the right business account for your company size and needs.',services:[{n:'Business account setup assistance',p:'R250'}]},
   bbee:{pill:'Pillar 1 · Compliance',title:'B-BBEE certification',desc:'Get your B-BBEE sworn affidavit or CIPC certificate — required for most tenders and RFQs.',services:[{n:'B-BBEE sworn affidavit',p:'R200'},{n:'B-BBEE CIPC certificate',p:'R150'}]},
-  csd:{pill:'Pillar 1 · Compliance',title:'CSD registration',desc:'Central Supplier Database — mandatory for all government suppliers. We register and maintain yours.',services:[{n:'New CSD registration',p:'R800'},{n:'CSD edit — commodities',p:'R450'}]},
-  coida:{pill:'Pillar 1 · Labour compliance',title:'COIDA & labour compliance',desc:'COIDA is compulsory for any employer. We register your company and file annual returns.',services:[{n:'COIDA new registration',p:'R2 550'},{n:'COIDA annual return filing',p:'R450'}]},
+  csd:{pill:'Pillar 1 · Compliance',title:'CSD registration',desc:'Central Supplier Database — mandatory for all government suppliers. We register and maintain yours.',services:[{n:'New CSD registration',p:'R800'},{n:'CSD edits',p:'R200'}]},
+  coida:{pill:'Pillar 1 · Labour compliance',title:'COIDA & labour compliance',desc:'COIDA is compulsory for any employer. We register your company and file annual returns.',services:[{n:'COIDA new registration',p:'R650'},{n:'COIDA annual return filing',p:'R450'}]},
   docs:{pill:'Pillar 4 · Business documents',title:'Company profile & business plan',desc:'Professional documents for tender packs, funding applications, and client meetings.',services:[{n:'Company profile — Basic',p:'R1 050'},{n:'Company profile — Standard',p:'R1 725'},{n:'Company profile — Premium',p:'R2 250'},{n:'Business plan — Basic',p:'R1 800'},{n:'Business plan — Funding ready',p:'R3 850'}]},
   tender:{pill:'Pillar 2 · Win tenders',title:'Tender & RFQ support',desc:'We find, compile, and submit tenders and RFQs for your business — from first quote to full submission.',services:[{n:'RFQ starter pack (all docs)',p:'R875'},{n:'RFQ compilation & sending',p:'R750'},{n:'Tender document compiling',p:'Quote'},{n:'Briefing attendance',p:'Quote'}]},
   payroll:{pill:'Pillar 3 · Payroll',title:'Monthly payroll & payslips',desc:'We run your payroll on Sage — legally, on time, with UIF, SDL and PAYE filed every month.',services:[{n:'Digital jumpstart setup',p:'Quote'},{n:'Payslip generation (per slip)',p:'Quote'},{n:'UIF / SDL / PAYE filing',p:'Included'},{n:'Leave tracking',p:'Included'}]},
@@ -2436,7 +2471,12 @@ var results = {
   logo:{pill:'Pillar 5 · Brand',title:'Logo & brand identity',desc:'A professional logo with mockup — see it on business cards, shirts, and signage before it prints.',services:[{n:'Logo with mockup',p:'R400'},{n:'Business card',p:'R200'},{n:'Letterhead',p:'R275'},{n:'Email signature',p:'R150'}]},
   website:{pill:'Pillar 5 · Digital presence',title:'Website design + hosting',desc:'Professional website with free domain and company email included.',services:[{n:'Basic — 5 pages',p:'Quote'},{n:'Advanced — 8 pages',p:'Quote'},{n:'Premium — 15+ pages',p:'Quote'},{n:'Monthly hosting + maintenance',p:'Quote'},{n:'Re-coding, Rebranding and Maintenance',p:'Quote'}]},
   print:{pill:'Pillar 5 · Printing',title:'Branded printing & signage',desc:'Uniforms, banners, gazebos, mugs, and signage — all branded and delivered.',services:[{n:'Sublimation printing',p:'Quote'},{n:'Gazebos & banners',p:'Quote'},{n:'Caps & t-shirts / embroidery',p:'Quote'},{n:'Signboards & 3D signage',p:'Quote'}]},
-  social:{pill:'Pillar 5 · Digital',title:'Social media design',desc:'Branded posts, flyers, and marketing content that looks consistent and professional.',services:[{n:'Social media post design',p:'R200'},{n:'Flyer / poster',p:'R300'},{n:'Quote / invoice template',p:'R180'}]}
+  social:{pill:'Pillar 5 · Digital',title:'Social media design',desc:'Branded posts, flyers, and marketing content that looks consistent and professional.',services:[{n:'Social media post design',p:'R200'},{n:'Flyer / poster',p:'R300'},{n:'Quote / invoice template',p:'R180'}]},
+  fundplan:{pill:'Pillar 4 · Funding Documents',title:'Funding-ready business plan',desc:'A comprehensive business plan written to meet funder and investor requirements — SEFA, IDC, NEF, banks, and more.',services:[{n:'Business plan — Basic',p:'R1 800'},{n:'Business plan — Standard',p:'R3 600'},{n:'Business plan — Funding ready',p:'R5 850'},{n:'Business plan — Premium',p:'R7 500'}]},
+  email:{pill:'Pillar 1 · Start your business',title:'Company email',desc:'Get a professional company email address (@yourcompany.co.za) — set up and ready to use.',services:[{n:'New company email (@company.co.za)',p:'R350'},{n:'Renew company domain / email',p:'R200'}]},
+  projections:{pill:'Pillar 4 · Funding Documents',title:'Financial projections & model',desc:'Detailed 3–5 year financial models with revenue forecasts, cash flow, and break-even analysis built for funders.',services:[{n:'Financial projections — Basic (3yr)',p:'R2 500'},{n:'Financial projections — Full model (5yr)',p:'R4 200'},{n:'Cash flow forecast only',p:'R1 500'},{n:'Break-even analysis',p:'R950'}]},
+  pitch:{pill:'Pillar 4 · Funding Documents',title:'Pitch deck & funding proposal',desc:'A professional pitch deck or written proposal tailored to your target funder, investor, or grant committee.',services:[{n:'Pitch deck (up to 15 slides)',p:'R2 800'},{n:'Written funding proposal',p:'R3 200'},{n:'Pitch deck + proposal combo',p:'R5 500'},{n:'Grant application document',p:'Quote'}]},
+  startup:{pill:'Pillar 4 · Funding Documents',title:'Start-up funding application pack',desc:'Everything a new business needs to apply for funding — business plan, projections, company profile, and supporting docs.',services:[{n:'Start-up funding pack — Essential',p:'R4 500'},{n:'Start-up funding pack — Full',p:'R7 800'},{n:'SEFA / NEF application support',p:'Quote'},{n:'Incubator / accelerator application',p:'Quote'}]}
 };
 
 function pickQ1(el, val){
@@ -2504,6 +2544,32 @@ function restartFinder(){
   document.querySelectorAll('.finder-opt').forEach(function(o){o.classList.remove('sel')});
   document.getElementById('fnext1').classList.remove('show');
 }
+</script>
+<script>
+// ── Tender packages auto-sort (lowest → highest price) ──
+// To restore Pay Now: remove disabled + pointer-events:none from the button and restore onclick="sendQuoteByEmail()"
+function sortPackagesGrid() {
+  var grid = document.getElementById('packages-grid');
+  if (!grid) return;
+  var cards = Array.from(grid.children);
+  cards.sort(function(a, b) {
+    return (parseInt(a.dataset.price) || 0) - (parseInt(b.dataset.price) || 0);
+  });
+  cards.forEach(function(card) { grid.appendChild(card); });
+}
+// Sort on initial load
+document.addEventListener('DOMContentLoaded', sortPackagesGrid);
+// Also sort whenever the tender packages tab is opened
+var _origShowTab = typeof showTab === 'function' ? showTab : null;
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof showTab === 'function') {
+    var __origShowTab = showTab;
+    showTab = function(tab) {
+      __origShowTab(tab);
+      if (tab === 'tender-packages') sortPackagesGrid();
+    };
+  }
+});
 </script>
 </body>
 </html>
