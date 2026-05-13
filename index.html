@@ -775,7 +775,7 @@
     /* ── Services section ── */
     .section { padding: 40px 0; }
     .section-sm { padding: 28px 0; }
-    .section-title { font-size: 24px; }
+    .section-title { font-size: 28px; }
     .pillars-grid { grid-template-columns: 1fr; }
 
     /* ── Pricing tabs ── */
@@ -792,8 +792,8 @@
 
     /* ── CTA strip ── */
     .cta-strip { padding: 0; }
-    .cta-strip h2 { font-size: 24px; }
-    .cta-strip p { font-size: 14px; }
+    .cta-strip h2 { font-size: 18px; letter-spacing: -0.3px; }
+    .cta-strip p { font-size: 13px; }
 
     /* ── Footer ── */
     .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -844,7 +844,7 @@
     .pkg-nav-btn:disabled { background: var(--gray2); color: #bbb; }
     #pkg-carousel-counter {
       font-size: 13px; font-weight: 700; color: var(--muted);
-      text-align: center;
+      text-align: center; white-space: nowrap;
     }
     #pkg-carousel-dots {
       display: flex; gap: 6px; justify-content: center; flex: 1;
@@ -970,6 +970,10 @@
     #svc-carousel-nav {
       flex-shrink: 0;
       padding: 8px 0 4px;
+    }
+    #svc-carousel-counter {
+      font-size: 13px; font-weight: 700; color: var(--muted);
+      text-align: center; white-space: nowrap; flex-shrink: 0;
     }
 
     /* ── Quote modal buttons: allow wrap on very small ── */
