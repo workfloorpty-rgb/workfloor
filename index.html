@@ -694,6 +694,49 @@
     .footer-brand { grid-column: 1 / -1; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
 
+
+    /* ── Package cards: 1 per scroll ── */
+    #packages-grid {
+      grid-template-columns: 1fr !important;
+      overflow-x: unset !important;
+      scroll-snap-type: none !important;
+    }
+    #packages-grid > div {
+      scroll-snap-align: start;
+      width: 100% !important;
+    }
+
+    /* ── Price rows: wrap nicely, add button always visible ── */
+    .price-row {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .price-row > span:last-child {
+      flex-shrink: 0;
+    }
+    .simple-row-add, .price-card-add, .btn-quote-tag {
+      opacity: 1 !important;
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+
+    /* ── Quote modal buttons: allow wrap on very small ── */
+    .quote-modal-actions {
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+    }
+    .quote-modal-actions button {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 12px !important;
+      padding: 10px 10px !important;
+      white-space: nowrap;
+    }
+
+    /* ── Pricing tab page ── */
+    #view-pricing .container { padding: 0 16px; }
+    .tab-panel { padding: 0; }
+
     /* ── Quote bar ── */
     #quote-bar { padding: 10px 16px; }
     .quote-bar-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -712,7 +755,7 @@
        <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#0f0f0f; letter-spacing:2px;">WORKFLOOR</span>
       </a>
       <div class="nav-links">
-        <a href="#services" onclick="showHomepage(); setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),50)">Home</a>
+        <a href="#" onclick="showHomepage(); return false;">Home</a>
         <a href="#" onclick="showTab('tender-packages'); return false;" id="nav-tender-packages">Tender Packages</a>
         <a href="#" onclick="showTab('pricing'); return false;" id="nav-pricing">Pricing</a>
         <a href="#" onclick="showTab('learn'); return false;">Learn</a>
@@ -1754,6 +1797,94 @@
       </div>
       <a href="https://www.tiktok.com/@work.floor" target="_blank" class="btn-yellow show" style="display:inline-block; margin-right:10px; text-decoration:none;">TikTok</a>
       <a href="https://web.facebook.com/profile.php?id=61560654827814" target="_blank" class="btn-yellow show" style="display:inline-block; text-decoration:none;">Facebook</a>
+
+      <!-- ── Document Checklists ── -->
+      <div style="margin-top:48px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#555;margin-bottom:10px;">Free Downloads</div>
+        <h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--white);letter-spacing:-0.5px;margin-bottom:8px;">Documents to always have handy</h2>
+        <p style="font-size:14px;color:#888;margin-bottom:28px;font-weight:500;">Download these checklists before coming to us — so you're ready to go from day one.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+
+          <a href="checklist-cipc.pdf" download style="text-decoration:none;">
+            <div style="background:#1a1a1a;border:1.5px solid #2a2a2a;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#2a2a2a'">
+              <div style="width:44px;height:44px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:3px;">CIPC Registration</div>
+                <div style="font-size:12px;color:#777;font-weight:600;">What to bring to register your company</div>
+              </div>
+              <div style="margin-left:auto;font-size:11px;font-weight:700;color:var(--yellow);white-space:nowrap;">↓ PDF</div>
+            </div>
+          </a>
+
+          <a href="checklist-sars.pdf" download style="text-decoration:none;">
+            <div style="background:#1a1a1a;border:1.5px solid #2a2a2a;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#2a2a2a'">
+              <div style="width:44px;height:44px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:3px;">SARS Tax Pin</div>
+                <div style="font-size:12px;color:#777;font-weight:600;">Documents for your tax pin &amp; eFiling profile</div>
+              </div>
+              <div style="margin-left:auto;font-size:11px;font-weight:700;color:var(--yellow);white-space:nowrap;">↓ PDF</div>
+            </div>
+          </a>
+
+          <a href="checklist-csd.pdf" download style="text-decoration:none;">
+            <div style="background:#1a1a1a;border:1.5px solid #2a2a2a;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#2a2a2a'">
+              <div style="width:44px;height:44px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:3px;">CSD Registration</div>
+                <div style="font-size:12px;color:#777;font-weight:600;">Central Supplier Database requirements</div>
+              </div>
+              <div style="margin-left:auto;font-size:11px;font-weight:700;color:var(--yellow);white-space:nowrap;">↓ PDF</div>
+            </div>
+          </a>
+
+          <a href="checklist-bbbee.pdf" download style="text-decoration:none;">
+            <div style="background:#1a1a1a;border:1.5px solid #2a2a2a;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#2a2a2a'">
+              <div style="width:44px;height:44px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:3px;">B-BBEE Affidavit</div>
+                <div style="font-size:12px;color:#777;font-weight:600;">What you need for your B-BBEE certificate</div>
+              </div>
+              <div style="margin-left:auto;font-size:11px;font-weight:700;color:var(--yellow);white-space:nowrap;">↓ PDF</div>
+            </div>
+          </a>
+
+          <a href="checklist-coida.pdf" download style="text-decoration:none;">
+            <div style="background:#1a1a1a;border:1.5px solid #2a2a2a;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#2a2a2a'">
+              <div style="width:44px;height:44px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:3px;">COIDA Registration</div>
+                <div style="font-size:12px;color:#777;font-weight:600;">Employer registration with the Compensation Fund</div>
+              </div>
+              <div style="margin-left:auto;font-size:11px;font-weight:700;color:var(--yellow);white-space:nowrap;">↓ PDF</div>
+            </div>
+          </a>
+
+          <a href="checklist-rfq.pdf" download style="text-decoration:none;">
+            <div style="background:#1a1a1a;border:1.5px solid #2a2a2a;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#2a2a2a'">
+              <div style="width:44px;height:44px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:3px;">Tender &amp; RFQ Pack</div>
+                <div style="font-size:12px;color:#777;font-weight:600;">Full document checklist for tender submissions</div>
+              </div>
+              <div style="margin-left:auto;font-size:11px;font-weight:700;color:var(--yellow);white-space:nowrap;">↓ PDF</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
     </div>
   </div>
 </div><!-- /view-learn -->
@@ -1840,7 +1971,7 @@
   </div>
   <div class="footer-col">
     <h4>Services</h4>
-    <a href="#services" onclick="showHomepage(); setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),50)">Start your business</a>
+    <a href="#" onclick="showHomepage(); return false;">Start your business</a>
     <a href="#" onclick="showTab('pricing'); setTimeout(()=>showPTabById('pt-tenders'),80); return false;">Tenders &amp; RFQs</a>
     <a href="#" onclick="showTab('pricing'); setTimeout(()=>showPTabById('pt-payroll'),80); return false;">Payroll</a>
     <a href="#" onclick="showTab('pricing'); setTimeout(()=>showPTabById('pt-docs'),80); return false;">Remote admin</a>
@@ -1991,7 +2122,7 @@ function openWA(service){
 function showHomepage(pushState){
   document.getElementById('view-homepage').style.display='block';
   document.querySelectorAll('.main-tab-page').forEach(function(p){p.style.display='none'});
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'instant'});
   if(pushState !== false) history.pushState({view:'home'}, '', location.pathname);
 }
 function showTab(tab, pushState){
