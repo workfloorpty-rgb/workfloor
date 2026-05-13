@@ -874,14 +874,25 @@
     .price-row {
       flex-wrap: wrap;
       gap: 6px;
+      align-items: center;
+    }
+    .price-name {
+      flex: 1 1 55%;
+      min-width: 0;
     }
     .price-row > span:last-child {
       flex-shrink: 0;
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      justify-content: flex-end;
     }
     .simple-row-add, .price-card-add, .btn-quote-tag {
       opacity: 1 !important;
       font-size: 11px;
       padding: 4px 10px;
+      flex-shrink: 0;
     }
 
     /* ── Tender packages header area ── */
@@ -889,14 +900,31 @@
     #view-tender-packages .tab-page-header h1 { font-size: 24px; }
     #view-tender-packages .tab-page-header p { font-size: 13px; }
 
-    /* ── Services cards: compact on mobile ── */
-    #services > .container > div[style*="grid"] {
-      grid-template-columns: 1fr !important;
+    /* ── Services cards: carousel on mobile ── */
+    #services {
+      min-height: 100svh;
+      max-height: 100svh;
+      overflow-y: visible;
     }
-    #services > .container > div[style*="grid"] > div {
+    #services-grid {
+      display: flex !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch;
+      gap: 0 !important;
+      margin-top: 20px !important;
+      scrollbar-width: none;
+    }
+    #services-grid::-webkit-scrollbar { display: none; }
+    #services-grid > div {
+      flex: 0 0 100% !important;
+      width: 100% !important;
+      min-width: 100% !important;
+      scroll-snap-align: start !important;
+      scroll-snap-stop: always;
       padding: 24px !important;
     }
-    #services > .container > div[style*="grid"] > div h3 {
+    #services-grid > div h3 {
       font-size: 22px !important;
     }
 
@@ -932,7 +960,7 @@
     <div class="nav-inner">
       <a class="logo" href="#" onclick="showHomepage(); return false;">
        <img src="logo.png" alt="Workfloor" style="height: 60px; width: auto;">
-       <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#0f0f0f; letter-spacing:2px;">WORKFLOOR</span>
+       <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#0f0f0f; letter-spacing:0.5px;">WORKFLOOR</span>
       </a>
       <div class="nav-links">
         <a href="#" onclick="showHomepage(); return false;">Home</a>
@@ -947,7 +975,7 @@
     </div>
   </div>
   <div class="nav-mobile-menu" id="mobileMenu">
-    <a href="#services" onclick="showHomepage(); toggleMenu(); setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),50)">Services</a>
+    <a href="#" onclick="showHomepage(); toggleMenu(); window.scrollTo({top:0,behavior:'smooth'}); return false;">Home</a>
     <a href="#" onclick="showTab('tender-packages'); toggleMenu(); return false;">Tender Packages</a>
     <a href="#" onclick="showTab('pricing'); toggleMenu(); return false;">Pricing</a>
     <a href="#" onclick="showTab('learn'); toggleMenu(); return false;">Learn</a>
@@ -1047,7 +1075,8 @@
     <div class="section-label">The corporate side</div>
     <h2 class="section-title">Run your business <span style="color:var(--yellow)">like a pro.</span></h2>
     <p class="section-sub">Services that go deeper — tailored, hands-on, and built around how your business actually works.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:24px; margin-top:40px;">
+    <div id="services-carousel-wrapper">
+    <div id="services-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:24px; margin-top:40px;">
 
       <!-- Card 1 -->
       <div style="background:#1a1a1a; border-radius:16px; padding:36px; color:var(--white);">
@@ -1138,7 +1167,17 @@
   <button class="btn-primary" style="width:100%; color:#ffffff; border-color:#ffffff; margin-bottom:12px;" onclick="openWA('Monthly Payroll')">Book a free consultation</button>
         
 </div>
-      
+    </div><!-- /services-grid -->
+
+      <!-- Mobile carousel nav for services -->
+      <div id="svc-carousel-nav" style="display:none; margin-top:16px;">
+        <button class="pkg-nav-btn" id="svc-prev" onclick="svcCarouselNav(-1)" aria-label="Previous">&#8592;</button>
+        <div id="svc-carousel-dots"></div>
+        <span id="svc-carousel-counter">1 / 3</span>
+        <button class="pkg-nav-btn" id="svc-next" onclick="svcCarouselNav(1)" aria-label="Next">&#8594;</button>
+      </div>
+    </div><!-- /services-carousel-wrapper -->
+  </div><!-- /container -->
 </section>
             
 <!-- SOCIAL PROOF -->
@@ -2188,7 +2227,7 @@
   <div class="footer-brand">
     <a class="logo" href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
       <img src="logo.png" alt="Workfloor" style="height:60px; width:auto;">
-      <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#ffffff; letter-spacing:2px;">WORKFLOOR</span>
+      <span style="font-family:'Barlow',sans-serif; font-size:18px; font-weight:800; color:#ffffff; letter-spacing:0.5px;">WORKFLOOR</span>
     </a>
     <p style="margin-top:12px">SMME business support — registrations, tenders, payroll, admin, and design. Nationwide.</p>
     <div class="footer-social" style="margin-top:16px">
@@ -3028,8 +3067,82 @@ function pkgGoTo(idx) {
 
 document.addEventListener('DOMContentLoaded', function() {
   initPkgCarousel();
-  window.addEventListener('resize', initPkgCarousel);
+  initSvcCarousel();
+  window.addEventListener('resize', function() {
+    initPkgCarousel();
+    initSvcCarousel();
+  });
 });
+
+// ── Mobile carousel for services section ──
+function initSvcCarousel() {
+  var isMobile = window.innerWidth <= 768;
+  var nav = document.getElementById('svc-carousel-nav');
+  var grid = document.getElementById('services-grid');
+  if (!nav || !grid) return;
+  if (isMobile) {
+    nav.style.display = 'flex';
+    buildSvcDots();
+    updateSvcCarouselState();
+    grid.removeEventListener('scroll', updateSvcCarouselState);
+    grid.addEventListener('scroll', updateSvcCarouselState);
+  } else {
+    nav.style.display = 'none';
+  }
+}
+
+function buildSvcDots() {
+  var grid = document.getElementById('services-grid');
+  var dotsEl = document.getElementById('svc-carousel-dots');
+  if (!grid || !dotsEl) return;
+  var count = grid.children.length;
+  var html = '';
+  for (var i = 0; i < count; i++) {
+    html += '<div class="pkg-dot' + (i === 0 ? ' active' : '') + '" onclick="svcGoTo(' + i + ')"></div>';
+  }
+  dotsEl.innerHTML = html;
+}
+
+function getCurrentSvcIndex() {
+  var grid = document.getElementById('services-grid');
+  if (!grid || !grid.children.length) return 0;
+  var cardWidth = grid.children[0].offsetWidth;
+  return Math.round(grid.scrollLeft / cardWidth);
+}
+
+function updateSvcCarouselState() {
+  var grid = document.getElementById('services-grid');
+  var counter = document.getElementById('svc-carousel-counter');
+  var prevBtn = document.getElementById('svc-prev');
+  var nextBtn = document.getElementById('svc-next');
+  var dotsEl = document.getElementById('svc-carousel-dots');
+  if (!grid) return;
+  var total = grid.children.length;
+  var idx = getCurrentSvcIndex();
+  if (counter) counter.textContent = (idx + 1) + ' / ' + total;
+  if (prevBtn) prevBtn.disabled = idx === 0;
+  if (nextBtn) nextBtn.disabled = idx === total - 1;
+  if (dotsEl) {
+    var dots = dotsEl.querySelectorAll('.pkg-dot');
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  }
+}
+
+function svcCarouselNav(dir) {
+  var grid = document.getElementById('services-grid');
+  if (!grid || !grid.children.length) return;
+  var cardWidth = grid.children[0].offsetWidth;
+  var idx = getCurrentSvcIndex() + dir;
+  idx = Math.max(0, Math.min(idx, grid.children.length - 1));
+  grid.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+}
+
+function svcGoTo(idx) {
+  var grid = document.getElementById('services-grid');
+  if (!grid || !grid.children.length) return;
+  var cardWidth = grid.children[0].offsetWidth;
+  grid.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+}
 </script>
 <script>
 // ── Inject Add buttons into all pricing tab price-rows ──
