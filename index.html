@@ -714,13 +714,14 @@
       justify-content: center;
     }
 
-    /* Services & reviews: allow internal scroll if content overflows */
+    /* Services: carousel — no vertical scroll, fits in one screen */
     #services {
       min-height: 100svh;
       max-height: 100svh;
-      overflow-y: auto;
+      overflow: hidden;
       justify-content: flex-start;
-      padding-top: 32px;
+      padding-top: 24px;
+      padding-bottom: 16px;
     }
     #reviews {
       min-height: 100svh;
@@ -778,7 +779,7 @@
     .pillars-grid { grid-template-columns: 1fr; }
 
     /* ── Pricing tabs ── */
-    .pricing-tabs { flex-wrap: nowrap !important; overflow-x: auto !important; padding-bottom: 8px !important; -webkit-overflow-scrolling: touch; }
+    .pricing-tabs { flex-wrap: wrap !important; overflow-x: unset !important; padding-bottom: 0 !important; gap: 6px !important; }
     .tab-btn { flex-shrink: 0; font-size: 12px; padding: 6px 12px; }
     .simple-row-add, .price-card-add { opacity: 1 !important; }
     .tab-panel { overflow-x: hidden; }
@@ -900,20 +901,29 @@
     #view-tender-packages .tab-page-header h1 { font-size: 24px; }
     #view-tender-packages .tab-page-header p { font-size: 13px; }
 
-    /* ── Services cards: carousel on mobile ── */
-    #services {
-      min-height: 100svh;
-      max-height: 100svh;
-      overflow-y: visible;
+    #services > .container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      height: 100%;
+    }
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
     }
     #services-grid {
       display: flex !important;
       overflow-x: auto !important;
+      overflow-y: hidden !important;
       scroll-snap-type: x mandatory !important;
       -webkit-overflow-scrolling: touch;
       gap: 0 !important;
-      margin-top: 20px !important;
+      margin-top: 16px !important;
       scrollbar-width: none;
+      flex: 1;
+      min-height: 0;
     }
     #services-grid::-webkit-scrollbar { display: none; }
     #services-grid > div {
@@ -922,10 +932,29 @@
       min-width: 100% !important;
       scroll-snap-align: start !important;
       scroll-snap-stop: always;
-      padding: 24px !important;
+      padding: 20px !important;
+      overflow-y: auto;
+      box-sizing: border-box;
     }
     #services-grid > div h3 {
-      font-size: 22px !important;
+      font-size: 20px !important;
+    }
+    #services-grid > div p {
+      font-size: 13px !important;
+      margin-bottom: 12px !important;
+    }
+    #services-grid > div ul {
+      margin-bottom: 12px !important;
+    }
+    #services-grid > div ul li {
+      font-size: 13px !important;
+      padding: 4px 0 !important;
+    }
+    #services-grid > div > div[style*="flex-wrap"] {
+      display: none !important;
+    }
+    #svc-carousel-nav {
+      flex-shrink: 0;
     }
 
     /* ── Quote modal buttons: allow wrap on very small ── */
@@ -3145,9 +3174,9 @@ function svcGoTo(idx) {
 }
 </script>
 <script>
-// ── Inject Add buttons into all pricing tab price-rows ──
+// ── Inject Add buttons into all pricing tab price-rows AND tender packages bid docs ──
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('#view-pricing .price-row').forEach(function(row) {
+  document.querySelectorAll('#view-pricing .price-row, #view-tender-packages .price-row').forEach(function(row) {
     var priceEl = row.querySelector('.price-amount');
     if (!priceEl) return;
     var priceText = priceEl.textContent.trim();
@@ -3155,10 +3184,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var nameEl = row.querySelector('.price-name');
     if (!nameEl) return;
     var name = nameEl.textContent.trim();
-    // Find or create the right-side span
     var rightSpan = row.querySelector('span[style*="display:flex"]');
     if (!rightSpan) return;
-    // Only add if no add button already present
     if (rightSpan.querySelector('button')) return;
     var btn = document.createElement('button');
     btn.className = 'simple-row-add';
