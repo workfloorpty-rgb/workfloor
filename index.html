@@ -720,8 +720,23 @@
       max-height: 100svh;
       overflow: hidden;
       justify-content: flex-start;
-      padding-top: 16px;
-      padding-bottom: 8px;
+      padding-top: 12px;
+      padding-bottom: 0;
+    }
+    /* Shrink the section header to give the card maximum room */
+    #services .section-label {
+      font-size: 10px !important;
+      margin-bottom: 2px !important;
+    }
+    #services .section-title {
+      font-size: 22px !important;
+      margin-bottom: 2px !important;
+      line-height: 1.1 !important;
+    }
+    #services .section-sub {
+      font-size: 11px !important;
+      margin-bottom: 0 !important;
+      line-height: 1.3 !important;
     }
     #reviews {
       min-height: 100svh;
@@ -908,6 +923,7 @@
       min-height: 0;
       height: 100%;
       padding-bottom: 0;
+      padding-top: 0;
     }
     #services-carousel-wrapper {
       display: flex;
@@ -922,7 +938,7 @@
       scroll-snap-type: x mandatory !important;
       -webkit-overflow-scrolling: touch;
       gap: 0 !important;
-      margin-top: 12px !important;
+      margin-top: 8px !important;
       scrollbar-width: none;
       flex: 1;
       min-height: 0;
