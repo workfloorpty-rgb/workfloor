@@ -800,16 +800,60 @@
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
 
 
-    /* ── Package cards: 1 per scroll ── */
+    /* ── Package cards: carousel, 1 card at a time ── */
+    #packages-carousel-wrapper {
+      position: relative;
+    }
     #packages-grid {
-      grid-template-columns: 1fr !important;
-      overflow-x: unset !important;
-      scroll-snap-type: none !important;
+      display: flex !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch;
+      gap: 0 !important;
+      scrollbar-width: none;
     }
+    #packages-grid::-webkit-scrollbar { display: none; }
     #packages-grid > div {
-      scroll-snap-align: start;
+      flex: 0 0 100% !important;
       width: 100% !important;
+      min-width: 100% !important;
+      scroll-snap-align: start !important;
+      scroll-snap-stop: always;
+      border-radius: 16px !important;
     }
+    #pkg-carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      gap: 12px;
+    }
+    .pkg-nav-btn {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .pkg-nav-btn:disabled { background: var(--gray2); color: #bbb; }
+    #pkg-carousel-counter {
+      font-size: 13px; font-weight: 700; color: var(--muted);
+      text-align: center;
+    }
+    #pkg-carousel-dots {
+      display: flex; gap: 6px; justify-content: center; flex: 1;
+    }
+    .pkg-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .pkg-dot.active { background: var(--black); transform: scale(1.25); }
 
     /* ── Checklist grid: 1 col on mobile ── */
     .checklist-grid {
@@ -1153,6 +1197,7 @@
       <p>We handle all registrations, certificates, and documents to get your business tender-ready — by industry.</p>
     </div>
     <section class="section" style="padding-top:24px">
+      <div id="packages-carousel-wrapper">
       <div id="packages-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px; align-items:stretch;">
 
         <!-- 1. Government & Public Sector — R4,500 -->
@@ -1439,6 +1484,16 @@
 
       </div><!-- /packages grid -->
 
+      <!-- Mobile carousel nav — hidden on desktop via JS -->
+      <div id="pkg-carousel-nav" style="display:none;">
+        <button class="pkg-nav-btn" id="pkg-prev" onclick="pkgCarouselNav(-1)" aria-label="Previous">&#8592;</button>
+        <div id="pkg-carousel-dots"></div>
+        <span id="pkg-carousel-counter">1 / 1</span>
+        <button class="pkg-nav-btn" id="pkg-next" onclick="pkgCarouselNav(1)" aria-label="Next">&#8594;</button>
+      </div>
+
+      </div><!-- /packages-carousel-wrapper -->
+
       <!-- BID DOCUMENTS SECTION -->
       <div style="margin-top:48px;">
         <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">Bid Documents</div>
@@ -1460,138 +1515,6 @@
       <div style="display:none;"><!-- old landscaping/pest control blocks removed, now in correct order above --></div>
 
       </div><!-- /bid-documents section -->
-
-      <!-- ── DOCUMENT CHECKLISTS SECTION ── -->
-      <div style="margin-top:64px;" id="doc-checklists">
-        <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">What to prepare</div>
-        <h2 style="font-size:clamp(20px,3vw,28px); font-weight:800; letter-spacing:-0.5px; margin-bottom:6px;">Document checklists</h2>
-        <p style="font-size:14px; color:var(--muted); font-weight:600; margin-bottom:28px;">Gather these documents before we start — it speeds everything up. WhatsApp them to us when you're ready.</p>
-
-        <div class="checklist-grid">
-
-          <!-- CIPC Registration -->
-          <div class="checklist-card">
-            <div class="checklist-card-header" style="background:#EEEDFE; border-bottom:2px solid #D0CDFB;">
-              <div class="checklist-icon" style="background:#534AB7;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
-              </div>
-              <div>
-                <div class="checklist-tag" style="color:#534AB7;">CIPC</div>
-                <div class="checklist-title">Company Registration</div>
-              </div>
-            </div>
-            <ul class="checklist-items">
-              <li><span class="chk-dot"></span>Green ID / Smart card (all directors)</li>
-              <li><span class="chk-dot"></span>3 company name options</li>
-              <li><span class="chk-dot"></span>Physical &amp; postal address</li>
-              <li><span class="chk-dot"></span>Director personal details</li>
-            </ul>
-            <button class="checklist-wa-btn" onclick="openWA('CIPC Registration')">WhatsApp us to start →</button>
-          </div>
-
-          <!-- SARS / Tax Pin -->
-          <div class="checklist-card">
-            <div class="checklist-card-header" style="background:#FFF4CC; border-bottom:2px solid #F5E07A;">
-              <div class="checklist-icon" style="background:#C49A00;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
-              </div>
-              <div>
-                <div class="checklist-tag" style="color:#C49A00;">SARS</div>
-                <div class="checklist-title">Tax Pin</div>
-              </div>
-            </div>
-            <ul class="checklist-items">
-              <li><span class="chk-dot"></span>Green ID / Smart card</li>
-              <li><span class="chk-dot"></span>CK document</li>
-              <li><span class="chk-dot"></span>Proof of residence (director)</li>
-              <li><span class="chk-dot"></span>Proof of residence (company / business address)</li>
-              <li><span class="chk-dot" style="background:#e55;"></span>Photo holding <em>"update my details"</em> sign &amp; ID <span style="font-size:11px;color:var(--muted);font-weight:600;">(placeholder — drop in your own photo)</span></li>
-            </ul>
-            <button class="checklist-wa-btn" onclick="openWA('SARS Tax Pin')">WhatsApp us to start →</button>
-          </div>
-
-          <!-- CSD Registration -->
-          <div class="checklist-card">
-            <div class="checklist-card-header" style="background:#E8F5E9; border-bottom:2px solid #A5D6A7;">
-              <div class="checklist-icon" style="background:#2E7D32;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              </div>
-              <div>
-                <div class="checklist-tag" style="color:#2E7D32;">CSD</div>
-                <div class="checklist-title">CSD Registration</div>
-              </div>
-            </div>
-            <ul class="checklist-items">
-              <li><span class="chk-dot"></span>CK document</li>
-              <li><span class="chk-dot"></span>Bank confirmation letter</li>
-              <li><span class="chk-dot"></span>SARS tax certificate</li>
-              <li><span class="chk-dot"></span>ID (all directors)</li>
-            </ul>
-            <button class="checklist-wa-btn" onclick="openWA('CSD Registration')">WhatsApp us to start →</button>
-          </div>
-
-          <!-- B-BBEE Affidavit -->
-          <div class="checklist-card">
-            <div class="checklist-card-header" style="background:#FBEAF0; border-bottom:2px solid #F4AECA;">
-              <div class="checklist-icon" style="background:#993556;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-              <div>
-                <div class="checklist-tag" style="color:#993556;">B-BBEE</div>
-                <div class="checklist-title">B-BBEE Affidavit</div>
-              </div>
-            </div>
-            <ul class="checklist-items">
-              <li><span class="chk-dot"></span>CK document</li>
-              <li><span class="chk-dot"></span>ID (all directors)</li>
-              <li><span class="chk-dot"></span>Proof of annual turnover</li>
-            </ul>
-            <button class="checklist-wa-btn" onclick="openWA('B-BBEE Affidavit')">WhatsApp us to start →</button>
-          </div>
-
-          <!-- COIDA Registration -->
-          <div class="checklist-card">
-            <div class="checklist-card-header" style="background:#E3F2FD; border-bottom:2px solid #90CAF9;">
-              <div class="checklist-icon" style="background:#1565C0;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-              <div>
-                <div class="checklist-tag" style="color:#1565C0;">COIDA</div>
-                <div class="checklist-title">COIDA Registration</div>
-              </div>
-            </div>
-            <ul class="checklist-items">
-              <li><span class="chk-dot"></span>CK document</li>
-              <li><span class="chk-dot"></span>ID (all directors)</li>
-              <li><span class="chk-dot"></span>Number of employees + wage info</li>
-            </ul>
-            <button class="checklist-wa-btn" onclick="openWA('COIDA Registration')">WhatsApp us to start →</button>
-          </div>
-
-          <!-- Tender / RFQ Pack -->
-          <div class="checklist-card checklist-card-featured">
-            <div class="checklist-card-header" style="background:#1a1a1a; border-bottom:2px solid #F5C000;">
-              <div class="checklist-icon" style="background:var(--yellow);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
-              </div>
-              <div>
-                <div class="checklist-tag" style="color:var(--yellow);">TENDER / RFQ</div>
-                <div class="checklist-title" style="color:var(--white);">Tender / RFQ Pack</div>
-              </div>
-            </div>
-            <ul class="checklist-items checklist-items-dark">
-              <li><span class="chk-dot" style="background:var(--yellow);"></span>CK document</li>
-              <li><span class="chk-dot" style="background:var(--yellow);"></span>SARS tax certificate</li>
-              <li><span class="chk-dot" style="background:var(--yellow);"></span>B-BBEE certificate</li>
-              <li><span class="chk-dot" style="background:var(--yellow);"></span>CSD report</li>
-              <li><span class="chk-dot" style="background:var(--yellow);"></span>Company profile</li>
-              <li><span class="chk-dot" style="background:var(--yellow);"></span>SBD / MBD forms</li>
-            </ul>
-            <button class="checklist-wa-btn checklist-wa-btn-yellow" onclick="openWA('Tender / RFQ Pack')">WhatsApp us to start →</button>
-          </div>
-
-        </div><!-- /checklist-grid -->
-      </div><!-- /doc-checklists -->
 
     </section>
   </div>
@@ -3024,9 +2947,88 @@ document.addEventListener('DOMContentLoaded', function() {
     var __origShowTab = showTab;
     showTab = function(tab) {
       __origShowTab(tab);
-      if (tab === 'tender-packages') sortPackagesGrid();
+      if (tab === 'tender-packages') { sortPackagesGrid(); initPkgCarousel(); }
     };
   }
+});
+
+// ── Mobile carousel for tender packages ──
+var pkgCarouselActive = false;
+function initPkgCarousel() {
+  var isMobile = window.innerWidth <= 768;
+  var nav = document.getElementById('pkg-carousel-nav');
+  var grid = document.getElementById('packages-grid');
+  if (!nav || !grid) return;
+
+  if (isMobile) {
+    nav.style.display = 'flex';
+    pkgCarouselActive = true;
+    buildPkgDots();
+    updatePkgCarouselState();
+    // Update on scroll
+    grid.addEventListener('scroll', updatePkgCarouselState);
+  } else {
+    nav.style.display = 'none';
+    pkgCarouselActive = false;
+  }
+}
+
+function buildPkgDots() {
+  var grid = document.getElementById('packages-grid');
+  var dotsEl = document.getElementById('pkg-carousel-dots');
+  if (!grid || !dotsEl) return;
+  var count = grid.children.length;
+  var html = '';
+  for (var i = 0; i < count; i++) {
+    html += '<div class="pkg-dot' + (i === 0 ? ' active' : '') + '" onclick="pkgGoTo(' + i + ')"></div>';
+  }
+  dotsEl.innerHTML = html;
+}
+
+function getCurrentPkgIndex() {
+  var grid = document.getElementById('packages-grid');
+  if (!grid || !grid.children.length) return 0;
+  var cardWidth = grid.children[0].offsetWidth;
+  return Math.round(grid.scrollLeft / cardWidth);
+}
+
+function updatePkgCarouselState() {
+  var grid = document.getElementById('packages-grid');
+  var counter = document.getElementById('pkg-carousel-counter');
+  var prevBtn = document.getElementById('pkg-prev');
+  var nextBtn = document.getElementById('pkg-next');
+  var dotsEl = document.getElementById('pkg-carousel-dots');
+  if (!grid) return;
+  var total = grid.children.length;
+  var idx = getCurrentPkgIndex();
+  if (counter) counter.textContent = (idx + 1) + ' / ' + total;
+  if (prevBtn) prevBtn.disabled = idx === 0;
+  if (nextBtn) nextBtn.disabled = idx === total - 1;
+  if (dotsEl) {
+    var dots = dotsEl.querySelectorAll('.pkg-dot');
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  }
+}
+
+function pkgCarouselNav(dir) {
+  var grid = document.getElementById('packages-grid');
+  if (!grid || !grid.children.length) return;
+  var cardWidth = grid.children[0].offsetWidth;
+  var idx = getCurrentPkgIndex() + dir;
+  idx = Math.max(0, Math.min(idx, grid.children.length - 1));
+  grid.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+}
+
+function pkgGoTo(idx) {
+  var grid = document.getElementById('packages-grid');
+  if (!grid || !grid.children.length) return;
+  var cardWidth = grid.children[0].offsetWidth;
+  grid.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initPkgCarousel();
+  window.addEventListener('resize', initPkgCarousel);
 });
 </script>
 <script>
